@@ -40,6 +40,10 @@ const initialValuesRegister = {
   picture: "",
 };
 
+const initialValuesLogin = {
+  phone: "",
+};
+
 const Form = () => {
   return <div></div>;
 };
