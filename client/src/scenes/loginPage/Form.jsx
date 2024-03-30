@@ -121,7 +121,7 @@ const Form = () => {
                   error={Boolean(touched.phone) && Boolean(errors.phone)}
                   helperText={touched.phone && errors.phone}
                   sx={{
-                    gridColumn: "span 2",
+                    gridColumn: "span 4",
                   }}
                 />
                 <TextField
@@ -133,7 +133,7 @@ const Form = () => {
                   error={Boolean(touched.location) && Boolean(errors.location)}
                   helperText={touched.location && errors.location}
                   sx={{
-                    gridColumn: "span 2",
+                    gridColumn: "span 4",
                   }}
                 />
               </>
