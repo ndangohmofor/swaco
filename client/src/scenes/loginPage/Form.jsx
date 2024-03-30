@@ -112,6 +112,18 @@ const Form = () => {
                     gridColumn: "span 2",
                   }}
                 />
+                <TextField
+                  label={"Phone Number"}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.phone}
+                  name="phone"
+                  error={Boolean(touched.phone) && Boolean(errors.phone)}
+                  helperText={touched.phone && errors.phone}
+                  sx={{
+                    gridColumn: "span 2",
+                  }}
+                />
               </>
             )}
           </Box>
