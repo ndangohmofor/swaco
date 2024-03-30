@@ -49,7 +49,64 @@ const initialValuesOtp = {
 };
 
 const Form = () => {
-  return <div></div>;
+  const [pageType, setPageType] = useState("login");
+  const { palette } = useTheme();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isNonMobile = useMediaQuery("(min-width: 600px)");
+  const isLogin = pageType === "login";
+  const isRegister = pageType === "register";
+
+  const handleFormSubmit = async (values, onsubmitProps) => {};
+
+  return (
+    <Formik
+      onSubmit={handleFormSubmit}
+      initialValues={isLogin ? initialValuesLogin : initialValuesRegister}
+      validationSchema={isLogin ? loginSchema : registerSchema}
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleBlur,
+        handleChange,
+        handleSubmit,
+        setFieldValue,
+        resetForm,
+      }) => (
+        <form onSubmit={handleSubmit}>
+          <Box
+            display={"grid"}
+            gap={"30px"}
+            gridTemplateColumns={"repeat(4, minmax(0, 1fr))"}
+            sx={{
+              "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
+            }}
+          >
+            {isRegister && (
+              <>
+                <TextField
+                  label={"First Name"}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.firstName}
+                  name="firstName"
+                  error={
+                    Boolean(touched.firstName) && Boolean(errors.firstName)
+                  }
+                  helperText={touched.firstName && errors.firstName}
+                  sx={{
+                    gridColumn: "span 2",
+                  }}
+                />
+              </>
+            )}
+          </Box>
+        </form>
+      )}
+    </Formik>
+  );
 };
 
 export default Form;
