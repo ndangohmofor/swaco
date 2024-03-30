@@ -12,12 +12,7 @@ const LoginPage = () => {
         p={"1rem 6%"}
         textAlign={"center"}
       >
-        <Typography
-          fontWeight={"bold"}
-          fontSize={"32px"}
-          color={"primary"}
-          onClick={() => navigate("/home")}
-        >
+        <Typography fontWeight={"bold"} fontSize={"32px"} color={"primary"}>
           SWACO
         </Typography>
       </Box>
