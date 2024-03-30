@@ -32,6 +32,14 @@ const otpSchema = yup.object().shape({
   otp: yup.number().otp("invalid otp").required("required"),
 });
 
+const initialValuesRegister = {
+  firstName: "",
+  lastName: "",
+  phone: "",
+  location: "",
+  picture: "",
+};
+
 const Form = () => {
   return <div></div>;
 };
