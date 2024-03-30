@@ -24,6 +24,14 @@ const registerSchema = yup.object().shape({
   picture: yup.string().required("required"),
 });
 
+const loginSchema = yup.object().shape({
+  phone: yup.string().phone("invalid phone number").required("required"),
+});
+
+const otpSchema = yup.object().shape({
+  otp: yup.number().otp("invalid otp").required("required"),
+});
+
 const Form = () => {
   return <div></div>;
 };
