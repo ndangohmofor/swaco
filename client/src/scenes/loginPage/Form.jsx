@@ -44,6 +44,10 @@ const initialValuesLogin = {
   phone: "",
 };
 
+const initialValuesOtp = {
+  otp: "",
+};
+
 const Form = () => {
   return <div></div>;
 };
