@@ -57,7 +57,34 @@ const Form = () => {
   const isLogin = pageType === "login";
   const isRegister = pageType === "register";
 
-  const handleFormSubmit = async (values, onsubmitProps) => {};
+  const register = async (values, onsubmitProps) => {
+    // This allows us to send form info with image
+    const formData = new FormData();
+    for (let value in values) {
+      formData.append(value, values[value]);
+    }
+    formData.append("picturePath", values.picture.name);
+
+    const savedUserResponse = await fetch(
+      "http://localhost:3001/auth/register",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    const savedUser = await savedUserResponse.json();
+    onsubmitProps.resetForm();
+
+    if (savedUser) {
+      setPageType("login");
+    }
+  };
+
+  const handleFormSubmit = async (values, onsubmitProps) => {
+    if (isLogin) await login(values, onsubmitProps);
+    if (isRegister) await register(values, onsubmitProps);
+  };
 
   return (
     <Formik
