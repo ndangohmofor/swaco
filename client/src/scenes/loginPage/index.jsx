@@ -23,8 +23,13 @@ const LoginPage = () => {
         borderRadius={"1.5rem"}
         backgroundColor={theme.palette.background.alt}
       >
-        <Typography fontWeight={"500"} variant="h5" sx={{ mb: "1.5rem" }}>
-          Welcome to SWACO
+        <Typography
+          fontWeight={"500"}
+          variant="h5"
+          sx={{ mb: "1.5rem" }}
+          textAlign={"center"}
+        >
+          Southern Cameroonians Association of Ohio
         </Typography>
       </Box>
     </Box>
