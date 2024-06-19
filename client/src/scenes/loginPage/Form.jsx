@@ -137,13 +137,16 @@ const Form = () => {
   const handleFormSubmit = async (values, onsubmitProps) => {
     if (isLogin) await login(values, onsubmitProps);
     if (isRegister) await register(values, onsubmitProps);
+    if (isOtp) await confirmOtp(values, onsubmitProps);
   };
 
   return (
     <Formik
       onSubmit={handleFormSubmit}
       initialValues={isLogin ? initialValuesLogin : initialValuesRegister}
-      validationSchema={isLogin ? loginSchema : registerSchema}
+      validationSchema={
+        isLogin ? (isOtp ? otpSchema : loginSchema) : registerSchema
+      }
     >
       {({
         values,
