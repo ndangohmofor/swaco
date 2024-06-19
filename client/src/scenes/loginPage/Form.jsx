@@ -10,7 +10,7 @@ import {
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { Formik } from "formik"; //Form library
 import * as yup from "yup"; //Validation library
-import { phone } from "yup-phone";
+import { phone } from "yup-phone"; //Phone number validation
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../../state";
@@ -20,17 +20,34 @@ import FlexBetween from "../../components/FlexBetween";
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
-  phone: yup.string().phone("invalid phone number").required("required"),
+  phone: yup
+    .number()
+    .typeError('"phone" must be a number')
+    .positive('"phone" must be a positive number')
+    .integer('"phone" cannot have a decimal')
+    .min(10, '"phone" must be 10 digits long')
+    .required("A phone number is required"),
   location: yup.string().required("required"),
   picture: yup.string().required("required"),
 });
 
 const loginSchema = yup.object().shape({
-  phone: yup.string().phone("invalid phone number").required("required"),
+  phone: yup
+    .number()
+    .typeError('"phone" must be a number')
+    .positive('"phone" must be a positive number')
+    .integer('"phone" cannot have a decimal')
+    .min(10, '"phone" must be 10 digits long')
+    .required("A phone number is required"),
 });
 
 const otpSchema = yup.object().shape({
-  otp: yup.number().otp("invalid otp").required("required"),
+  otp: yup
+    .string()
+    .required("otp is required to proceed")
+    .matches(/^[0-9]+$/, "Must be only digits")
+    .min(5, "otp must be 5 digits long")
+    .max(5, "otp must be 5 digits long"),
 });
 
 const initialValuesRegister = {
