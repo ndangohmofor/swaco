@@ -97,22 +97,25 @@ const Form = () => {
     onsubmitProps.resetForm();
 
     if (savedUser) {
+      setIsLogin(true);
+      setIsRegister(false);
       setPageType("login");
     }
   };
 
   const login = async (values, onsubmitProps) => {
-    // const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(values),
-    // });
+    const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    });
 
-    // const validUser = await loggedInResponse.json();
+    const validUser = await loggedInResponse.json();
     onsubmitProps.resetForm();
-    if (true) {
+    if (validUser) {
+      setIsLogin(false);
+      setIsRegister(false);
       setIsOtp(true);
-      // isOtp = true;
       setPageType("otp");
     }
   };
