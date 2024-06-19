@@ -21,25 +21,22 @@ const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
   phone: yup
-    .number()
-    .typeError('"phone" must be a number')
-    .positive('"phone" must be a positive number')
-    .integer('"phone" cannot have a decimal')
+    .string()
+    .required("Phone number is required to proceed")
+    .matches(/^[0-9]+$/, "Must be only digits")
     .min(10, '"phone" must be 10 digits long')
-    .required("A phone number is required"),
-  location: yup.string().required("required"),
-  picture: yup.string().required("required"),
+    .max(10, '"Phone" must be 10 digits long'),
+  location: yup.string().required("Name of your neighborhood"),
+  picture: yup.string().required("Please select a profile picture"),
 });
 
 const loginSchema = yup.object().shape({
   phone: yup
-    .number()
-    .typeError('"Phone" must be a number')
-    // .min(10, '"Phone" must be 10 digits long!!')
-    // .max(10, '"Phone" must be 10 digits long')
-    .positive('"Phone" must be a positive number')
-    .integer('"Phone" cannot have a decimal')
-    .required("A Phone number is required"),
+    .string()
+    .required("Phone number is required to proceed")
+    .matches(/^[0-9]+$/, "Must be only digits")
+    .min(10, '"Phone" must be 10 digits long')
+    .max(10, '"Phone" must be 10 digits long'),
 });
 
 const otpSchema = yup.object().shape({
@@ -150,7 +147,7 @@ const Form = () => {
       onSubmit={handleFormSubmit}
       initialValues={isLogin ? initialValuesLogin : initialValuesRegister}
       validationSchema={
-        isLogin ? (isOtp ? otpSchema : loginSchema) : registerSchema
+        isRegister ? registerSchema : isLogin ? loginSchema : otpSchema
       }
     >
       {({
@@ -234,7 +231,12 @@ const Form = () => {
                           "&:hover": { cursor: "pointer" },
                         }}
                       >
-                        <input {...getInputProps()} />
+                        <input
+                          label="picture"
+                          title="profile picture"
+                          placeholder="Add Picture here"
+                          {...getInputProps()}
+                        />
                         {!values.picture ? (
                           <p>Add Picture Here</p>
                         ) : (
@@ -304,7 +306,7 @@ const Form = () => {
               </>
             )}
 
-            {isLogin && !isOtp && (
+            {isLogin && (
               <>
                 <TextField
                   label={"Phone Number"}
