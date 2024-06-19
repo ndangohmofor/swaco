@@ -7,7 +7,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { EditOutlinedIcon } from "@mui/icons-material";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { Formik } from "formik"; //Form library
 import * as yup from "yup"; //Validation library
 import { useNavigate } from "react-router-dom";
