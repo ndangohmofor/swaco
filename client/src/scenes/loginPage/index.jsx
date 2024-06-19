@@ -1,4 +1,5 @@
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
+import Form from "./Form";
 
 const LoginPage = () => {
   const theme = useTheme();
@@ -31,6 +32,7 @@ const LoginPage = () => {
         >
           Southern Cameroonians Association of Ohio
         </Typography>
+        <Form />
       </Box>
     </Box>
   );
