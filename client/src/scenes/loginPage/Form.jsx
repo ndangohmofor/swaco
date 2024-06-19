@@ -34,11 +34,12 @@ const registerSchema = yup.object().shape({
 const loginSchema = yup.object().shape({
   phone: yup
     .number()
-    .typeError('"phone" must be a number')
-    .positive('"phone" must be a positive number')
-    .integer('"phone" cannot have a decimal')
-    .min(10, '"phone" must be 10 digits long')
-    .required("A phone number is required"),
+    .typeError('"Phone" must be a number')
+    .min(10, '"Phone" must be 10 digits long!!')
+    .max(10, '"Phone" must be 10 digits long')
+    .positive('"Phone" must be a positive number')
+    .integer('"Phone" cannot have a decimal')
+    .required("A Phone number is required"),
 });
 
 const otpSchema = yup.object().shape({
@@ -110,6 +111,7 @@ const Form = () => {
     const validUser = await loggedInResponse.json();
     onsubmitProps.resetForm();
     if (validUser) {
+      isOtp = true;
       setPageType("otp");
     }
   };
@@ -123,7 +125,7 @@ const Form = () => {
     const loggedIn = await loginOtpResponse.json();
     onsubmitProps.resetForm();
     if (loggedIn) {
-      setPageType("login");
+      // setPageType("login");
       dispatch(
         setLogin({
           user: loggedIn.user,
@@ -195,7 +197,7 @@ const Form = () => {
                     gridColumn: "span 2",
                   }}
                 />
-                <TextField
+                {/* <TextField
                   label={"Phone Number"}
                   onBlur={handleBlur}
                   onChange={handleChange}
@@ -206,7 +208,7 @@ const Form = () => {
                   sx={{
                     gridColumn: "span 4",
                   }}
-                />
+                /> */}
                 <TextField
                   label={"Location"}
                   onBlur={handleBlur}
@@ -256,6 +258,30 @@ const Form = () => {
                 </Box>
               </>
             )}
+
+            {isOtp && (
+              <>
+                <TextField
+                  label={"Otp"}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.phone}
+                  name="otp"
+                  error={Boolean(touched.phone) && Boolean(errors.phone)}
+                  helperText={touched.phone && errors.phone}
+                  sx={{
+                    gridColumn: "span 4",
+                  }}
+                />
+                <Box
+                  gridColumn={"span 4"}
+                  border={`1px solid ${palette.neutral.medium}`}
+                  borderRadius={"5px"}
+                  p={"1rem"}
+                ></Box>
+              </>
+            )}
+
             <TextField
               label={"Phone Number"}
               onBlur={handleBlur}
@@ -285,7 +311,7 @@ const Form = () => {
                 },
               }}
             >
-              {isLogin ? "LOGIN" : "REGISTER"}
+              {isLogin ? (isOtp ? "SUBMIT" : "LOGIN") : "REGISTER"}
             </Button>
             <Typography
               onClick={() => {
