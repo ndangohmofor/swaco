@@ -35,8 +35,8 @@ const loginSchema = yup.object().shape({
   phone: yup
     .number()
     .typeError('"Phone" must be a number')
-    .min(10, '"Phone" must be 10 digits long!!')
-    .max(10, '"Phone" must be 10 digits long')
+    // .min(10, '"Phone" must be 10 digits long!!')
+    // .max(10, '"Phone" must be 10 digits long')
     .positive('"Phone" must be a positive number')
     .integer('"Phone" cannot have a decimal')
     .required("A Phone number is required"),
@@ -68,14 +68,14 @@ const initialValuesOtp = {
 };
 
 const Form = () => {
-  const [pageType, setPageType] = useState("login");
+  const [pageType, setPageType] = useState("register");
   const { palette } = useTheme();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width: 600px)");
-  const isLogin = pageType === "login";
-  const isRegister = pageType === "register";
-  const isOtp = pageType === "otp";
+  const [isLogin, setIsLogin] = useState(pageType === "login");
+  const [isRegister, setIsRegister] = useState(pageType === "register");
+  const [isOtp, setIsOtp] = useState(pageType === "otp");
 
   const register = async (values, onsubmitProps) => {
     // This allows us to send form info with image
@@ -102,16 +102,17 @@ const Form = () => {
   };
 
   const login = async (values, onsubmitProps) => {
-    const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
-    });
+    // const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(values),
+    // });
 
-    const validUser = await loggedInResponse.json();
+    // const validUser = await loggedInResponse.json();
     onsubmitProps.resetForm();
-    if (validUser) {
-      isOtp = true;
+    if (true) {
+      setIsOtp(true);
+      // isOtp = true;
       setPageType("otp");
     }
   };
@@ -125,7 +126,6 @@ const Form = () => {
     const loggedIn = await loginOtpResponse.json();
     onsubmitProps.resetForm();
     if (loggedIn) {
-      // setPageType("login");
       dispatch(
         setLogin({
           user: loggedIn.user,
@@ -197,18 +197,6 @@ const Form = () => {
                     gridColumn: "span 2",
                   }}
                 />
-                {/* <TextField
-                  label={"Phone Number"}
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.phone}
-                  name="phone"
-                  error={Boolean(touched.phone) && Boolean(errors.phone)}
-                  helperText={touched.phone && errors.phone}
-                  sx={{
-                    gridColumn: "span 4",
-                  }}
-                /> */}
                 <TextField
                   label={"Location"}
                   onBlur={handleBlur}
@@ -256,81 +244,164 @@ const Form = () => {
                     )}
                   </DropZone>
                 </Box>
-              </>
-            )}
-
-            {isOtp && (
-              <>
                 <TextField
-                  label={"Otp"}
+                  label={"Phone Number"}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.phone}
-                  name="otp"
+                  name="phone"
                   error={Boolean(touched.phone) && Boolean(errors.phone)}
                   helperText={touched.phone && errors.phone}
                   sx={{
                     gridColumn: "span 4",
                   }}
                 />
+
+                {/* BUTTONS */}
                 <Box
                   gridColumn={"span 4"}
-                  border={`1px solid ${palette.neutral.medium}`}
+                  // border={`1px solid ${palette.neutral.medium}`}
                   borderRadius={"5px"}
                   p={"1rem"}
-                ></Box>
+                >
+                  <Button
+                    fullWidth
+                    type="submit"
+                    sx={{
+                      m: "2rem 0",
+                      p: "1rem",
+                      backgroundColor: palette.primary.main,
+                      color: palette.background.alt,
+                      "&:hover": {
+                        color: palette.primary.main,
+                      },
+                    }}
+                  >
+                    REGISTER
+                  </Button>
+                  <Typography
+                    onClick={() => {
+                      setIsRegister(false);
+                      setIsLogin(true);
+                      resetForm();
+                    }}
+                    sx={{
+                      textDecoration: "underline",
+                      textAlign: "center",
+                      color: palette.primary.main,
+                      "&:hover": {
+                        cursor: "pointer",
+                        color: palette.primary.light,
+                      },
+                    }}
+                  >
+                    Already have an account? Login Here
+                  </Typography>
+                </Box>
               </>
             )}
 
-            <TextField
-              label={"Phone Number"}
-              onBlur={handleBlur}
-              onChange={handleChange}
-              value={values.phone}
-              name="phone"
-              error={Boolean(touched.phone) && Boolean(errors.phone)}
-              helperText={touched.phone && errors.phone}
-              sx={{
-                gridColumn: "span 4",
-              }}
-            />
-          </Box>
+            {isLogin && !isOtp && (
+              <>
+                <TextField
+                  label={"Phone Number"}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.phone}
+                  name="phone"
+                  error={Boolean(touched.phone) && Boolean(errors.phone)}
+                  helperText={touched.phone && errors.phone}
+                  sx={{
+                    gridColumn: "span 4",
+                  }}
+                />
 
-          {/* BUTTONS */}
-          <Box>
-            <Button
-              fullWidth
-              type="submit"
-              sx={{
-                m: "2rem 0",
-                p: "1rem",
-                backgroundColor: palette.primary.main,
-                color: palette.background.alt,
-                "&:hover": {
-                  color: palette.primary.main,
-                },
-              }}
-            >
-              {isLogin ? (isOtp ? "SUBMIT" : "LOGIN") : "REGISTER"}
-            </Button>
-            <Typography
-              onClick={() => {
-                setPageType(isLogin ? "register" : "login");
-                resetForm();
-              }}
-              sx={{
-                textDecoration: "underline",
-                color: palette.primary.main,
-                "&:hover": {
-                  cursor: "pointer",
-                  color: palette.primary.light,
-                },
-              }}
-            >
-              {isLogin
-                ? "Don't have an account? Sign Up here."
-                : "Already have an account? Login Here."}
-            </Typography>
+                {/* BUTTONS */}
+                <Box>
+                  <Button
+                    fullWidth
+                    type="submit"
+                    sx={{
+                      m: "2rem 0",
+                      p: "1rem",
+                      backgroundColor: palette.primary.main,
+                      color: palette.background.alt,
+                      "&:hover": {
+                        color: palette.primary.main,
+                      },
+                    }}
+                  >
+                    {isLogin ? "LOGIN" : "REGISTER"}
+                  </Button>
+                  <Typography
+                    onClick={() => {
+                      setIsLogin(!isLogin);
+                      setIsRegister(!isRegister);
+                      setPageType(isLogin ? "register" : "login");
+                      resetForm();
+                    }}
+                    sx={{
+                      textDecoration: "underline",
+                      color: palette.primary.main,
+                      "&:hover": {
+                        cursor: "pointer",
+                        color: palette.primary.light,
+                      },
+                    }}
+                  >
+                    Don't have an account? Sign Up here
+                  </Typography>
+                </Box>
+              </>
+            )}
+
+            {isOtp && (
+              <>
+                <TextField
+                  label={"Enter OTP"}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  onSubmit={() => resetForm()}
+                  value={values.otp}
+                  name="otp"
+                  error={Boolean(touched.otp) && Boolean(errors.otp)}
+                  helperText={touched.otp && errors.otp}
+                  sx={{
+                    gridColumn: "span 4",
+                  }}
+                />
+
+                <Box>
+                  <Button
+                    fullWidth
+                    type="submit"
+                    sx={{
+                      m: "2rem 0",
+                      p: "1rem",
+                      backgroundColor: palette.primary.main,
+                      color: palette.background.alt,
+                      "&:hover": {
+                        color: palette.primary.main,
+                      },
+                    }}
+                  >
+                    SUBMIT
+                  </Button>
+                  <Typography
+                    sx={{
+                      textDecoration: "underline",
+                      color: palette.primary.main,
+                      "&:hover": {
+                        cursor: "pointer",
+                        color: palette.primary.light,
+                      },
+                    }}
+                  >
+                    Lookout for an OTP sent to your phone
+                  </Typography>
+                </Box>
+              </>
+            )}
           </Box>
         </form>
       )}
