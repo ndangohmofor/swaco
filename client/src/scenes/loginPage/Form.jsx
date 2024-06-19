@@ -107,16 +107,10 @@ const Form = () => {
       body: JSON.stringify(values),
     });
 
-    const loggedIn = await loggedInResponse.json();
+    const validUser = await loggedInResponse.json();
     onsubmitProps.resetForm();
-    if (loggedIn) {
-      dispatch(
-        setLogin({
-          user: loggedIn.user,
-          token: loggedIn.token,
-        })
-      );
-      navigate("/home");
+    if (validUser) {
+      setPageType("otp");
     }
   };
 
@@ -126,10 +120,17 @@ const Form = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
     });
-    const loginOtp = await loginOtpResponse.json();
+    const loggedIn = await loginOtpResponse.json();
     onsubmitProps.resetForm();
-    if (loginOtp) {
+    if (loggedIn) {
       setPageType("login");
+      dispatch(
+        setLogin({
+          user: loggedIn.user,
+          token: loggedIn.token,
+        })
+      );
+      navigate("/home");
     }
   };
 
