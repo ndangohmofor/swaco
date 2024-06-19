@@ -281,9 +281,9 @@ const Form = () => {
                   </Button>
                   <Typography
                     onClick={() => {
+                      resetForm();
                       setIsRegister(false);
                       setIsLogin(true);
-                      resetForm();
                     }}
                     sx={{
                       textDecoration: "underline",
@@ -317,7 +317,12 @@ const Form = () => {
                 />
 
                 {/* BUTTONS */}
-                <Box>
+                <Box
+                  gridColumn={"span 4"}
+                  // border={`1px solid ${palette.neutral.medium}`}
+                  borderRadius={"5px"}
+                  p={"1rem"}
+                >
                   <Button
                     fullWidth
                     type="submit"
@@ -331,17 +336,17 @@ const Form = () => {
                       },
                     }}
                   >
-                    {isLogin ? "LOGIN" : "REGISTER"}
+                    LOGIN
                   </Button>
                   <Typography
                     onClick={() => {
-                      setIsLogin(!isLogin);
-                      setIsRegister(!isRegister);
-                      setPageType(isLogin ? "register" : "login");
                       resetForm();
+                      setIsRegister(true);
+                      setIsLogin(false);
                     }}
                     sx={{
                       textDecoration: "underline",
+                      textAlign: "center",
                       color: palette.primary.main,
                       "&:hover": {
                         cursor: "pointer",
@@ -371,12 +376,12 @@ const Form = () => {
                   }}
                 />
 
-                <Box>
+                <Box gridColumn={"span 4"} borderRadius={"5px"}>
                   <Button
                     fullWidth
                     type="submit"
                     sx={{
-                      m: "2rem 0",
+                      m: "0.5rem 0",
                       p: "1rem",
                       backgroundColor: palette.primary.main,
                       color: palette.background.alt,
@@ -390,6 +395,7 @@ const Form = () => {
                   <Typography
                     sx={{
                       textDecoration: "underline",
+                      textAlign: "center",
                       color: palette.primary.main,
                       "&:hover": {
                         cursor: "pointer",
