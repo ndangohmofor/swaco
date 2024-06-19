@@ -120,6 +120,19 @@ const Form = () => {
     }
   };
 
+  const confirmOtp = async (values, onsubmitProps) => {
+    const loginOtpResponse = await fetch("http://localhost:3001/auth/otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    });
+    const loginOtp = await loginOtpResponse.json();
+    onsubmitProps.resetForm();
+    if (loginOtp) {
+      setPageType("login");
+    }
+  };
+
   const handleFormSubmit = async (values, onsubmitProps) => {
     if (isLogin) await login(values, onsubmitProps);
     if (isRegister) await register(values, onsubmitProps);
