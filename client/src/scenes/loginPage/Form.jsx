@@ -74,6 +74,7 @@ const Form = () => {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
   const isLogin = pageType === "login";
   const isRegister = pageType === "register";
+  const isOtp = pageType === "otp";
 
   const register = async (values, onsubmitProps) => {
     // This allows us to send form info with image
