@@ -30,7 +30,7 @@ const LoginPage = () => {
           sx={{ mb: "1.5rem" }}
           textAlign={"center"}
         >
-          Southern Cameroonians Association of Ohio
+          Southern Cameroons Association of Ohio
         </Typography>
         <Form />
       </Box>
