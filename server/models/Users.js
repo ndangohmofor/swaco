@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import Role from './Role';
+import Status from './Status';
 
 const userSchema = new mongoose.Schema(
   {
@@ -26,7 +28,14 @@ const userSchema = new mongoose.Schema(
       required: false,
       max: 5,
     },
-    status: {},
+    status: {
+      type: Status,
+      required: true,
+    },
+    role: {
+      type: Role,
+      required: true,
+    },
     picturePath: {
       type: String,
       default: '',
@@ -34,3 +43,6 @@ const userSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
+
+const User = mongoose.model('User', userSchema);
+export default User;
