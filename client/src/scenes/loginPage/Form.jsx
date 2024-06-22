@@ -52,7 +52,7 @@ const initialValuesRegister = {
   lastName: "",
   phoneNumber: "",
   location: "",
-  picturePath: "",
+  picture: "",
 };
 
 const initialValuesLogin = {
@@ -90,13 +90,14 @@ const Form = () => {
     );
 
     const savedUser = await savedUserResponse.json();
-    onsubmitProps.resetForm();
 
     if (savedUser) {
       setIsLogin(true);
       setIsRegister(false);
       setPageType("login");
     }
+
+    onsubmitProps.resetForm();
   };
 
   const login = async (values, onsubmitProps) => {
@@ -107,12 +108,12 @@ const Form = () => {
     });
 
     const validUser = await loggedInResponse.json();
-    onsubmitProps.resetForm();
     if (validUser) {
       setIsLogin(false);
       setIsRegister(false);
       setIsOtp(true);
       setPageType("otp");
+      onsubmitProps.resetForm();
     }
   };
 
@@ -123,7 +124,6 @@ const Form = () => {
       body: JSON.stringify(values),
     });
     const loggedIn = await loginOtpResponse.json();
-    onsubmitProps.resetForm();
     if (loggedIn) {
       dispatch(
         setLogin({
@@ -131,6 +131,7 @@ const Form = () => {
           token: loggedIn.token,
         })
       );
+      onsubmitProps.resetForm();
       navigate("/home");
     }
   };
@@ -234,7 +235,7 @@ const Form = () => {
                           label="picture"
                           title="profile picture"
                           placeholder="Add Picture here"
-                          name="picturePath"
+                          name="picture"
                           {...getInputProps()}
                         />
                         {!values.picture ? (
@@ -253,10 +254,12 @@ const Form = () => {
                   label={"Phone Number"}
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.phone}
+                  value={values.phoneNumber}
                   name="phoneNumber"
-                  error={Boolean(touched.phone) && Boolean(errors.phone)}
-                  helperText={touched.phone && errors.phone}
+                  error={
+                    Boolean(touched.phoneNumber) && Boolean(errors.phoneNumber)
+                  }
+                  helperText={touched.phoneNumber && errors.phoneNumber}
                   sx={{
                     gridColumn: "span 4",
                   }}
@@ -286,9 +289,9 @@ const Form = () => {
                   </Button>
                   <Typography
                     onClick={() => {
-                      resetForm();
                       setIsRegister(false);
                       setIsLogin(true);
+                      resetForm();
                     }}
                     sx={{
                       textDecoration: "underline",
@@ -312,10 +315,12 @@ const Form = () => {
                   label={"Phone Number"}
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.phone}
+                  value={values.phoneNumber}
                   name="phone"
-                  error={Boolean(touched.phone) && Boolean(errors.phone)}
-                  helperText={touched.phone && errors.phone}
+                  error={
+                    Boolean(touched.phoneNumber) && Boolean(errors.phoneNumber)
+                  }
+                  helperText={touched.phoneNumber && errors.phoneNumber}
                   sx={{
                     gridColumn: "span 4",
                   }}
@@ -345,9 +350,9 @@ const Form = () => {
                   </Button>
                   <Typography
                     onClick={() => {
-                      resetForm();
-                      setIsRegister(true);
                       setIsLogin(false);
+                      setIsRegister(true);
+                      resetForm();
                     }}
                     sx={{
                       textDecoration: "underline",
