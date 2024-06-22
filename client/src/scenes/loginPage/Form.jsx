@@ -10,7 +10,6 @@ import {
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { Formik } from "formik"; //Form library
 import * as yup from "yup"; //Validation library
-import { phone } from "yup-phone"; //Phone number validation
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../../state";
@@ -20,18 +19,18 @@ import FlexBetween from "../../components/FlexBetween";
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
-  phone: yup
+  phoneNumber: yup
     .string()
     .required("Phone number is required to proceed")
     .matches(/^[0-9]+$/, "Must be only digits")
     .min(10, '"phone" must be 10 digits long')
     .max(10, '"Phone" must be 10 digits long'),
   location: yup.string().required("Name of your neighborhood"),
-  picture: yup.string().required("Please select a profile picture"),
+  picturePath: yup.string().required("Please select a profile picture"),
 });
 
 const loginSchema = yup.object().shape({
-  phone: yup
+  phoneNumber: yup
     .string()
     .required("Phone number is required to proceed")
     .matches(/^[0-9]+$/, "Must be only digits")
@@ -51,13 +50,13 @@ const otpSchema = yup.object().shape({
 const initialValuesRegister = {
   firstName: "",
   lastName: "",
-  phone: "",
+  phoneNumber: "",
   location: "",
-  picture: "",
+  picturePath: "",
 };
 
 const initialValuesLogin = {
-  phone: "",
+  phoneNumber: "",
 };
 
 const initialValuesOtp = {
@@ -235,6 +234,7 @@ const Form = () => {
                           label="picture"
                           title="profile picture"
                           placeholder="Add Picture here"
+                          name="picturePath"
                           {...getInputProps()}
                         />
                         {!values.picture ? (
@@ -254,7 +254,7 @@ const Form = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.phone}
-                  name="phone"
+                  name="phoneNumber"
                   error={Boolean(touched.phone) && Boolean(errors.phone)}
                   helperText={touched.phone && errors.phone}
                   sx={{
