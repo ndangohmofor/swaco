@@ -316,7 +316,7 @@ const Form = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.phoneNumber}
-                  name="phone"
+                  name="phoneNumber"
                   error={
                     Boolean(touched.phoneNumber) && Boolean(errors.phoneNumber)
                   }
