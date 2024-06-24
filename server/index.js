@@ -19,14 +19,14 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(bodyParser.json({ limit: '30mb', extended: true }));
-app.use(bodyParser.urlencoded({ extended: true, limit: '30mb' }));
-app.use(morgan('common'));
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }));
+app.use(morgan('common'));
+app.use(bodyParser.json({ limit: '30mb', extended: true }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '30mb' }));
 app.use(cors());
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
-app.use(multer().any());
+// app.use(multer().any());
 
 /** FILE STORAGE CONFIGURATIONS */
 const storage = multer.diskStorage({
