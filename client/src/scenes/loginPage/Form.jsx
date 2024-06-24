@@ -8,8 +8,8 @@ import {
   useTheme,
 } from "@mui/material";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import { Formik } from "formik"; //Form library
-import * as yup from "yup"; //Validation library
+import { Formik } from "formik";
+import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../../state";
@@ -69,122 +69,143 @@ const Form = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width: 600px)");
-  const [isLogin, setIsLogin] = useState(pageType === "login");
-  const [isRegister, setIsRegister] = useState(pageType === "register");
-  const [isOtp, setIsOtp] = useState(pageType === "otp");
   const [initialValues, setInitialValues] = useState(initialValuesLogin);
   const [validationSchema, setValidationSchema] = useState(loginSchema);
 
-  const register = async (values, onsubmitProps) => {
-    // This allows us to send form info with image
+  useEffect(() => {
+    switch (pageType) {
+      case "register":
+        setInitialValues(initialValuesRegister);
+        setValidationSchema(registerSchema);
+        break;
+      case "login":
+        setInitialValues(initialValuesLogin);
+        setValidationSchema(loginSchema);
+        break;
+      case "otp":
+        setInitialValues(initialValuesOtp);
+        setValidationSchema(otpSchema);
+        break;
+      default:
+        setInitialValues(initialValuesLogin);
+        setValidationSchema(loginSchema);
+    }
+  }, [pageType]);
+
+  const register = async (values, onSubmitProps) => {
+    console.log("Registering user with values:", values);
     const formData = new FormData();
     for (let value in values) {
       formData.append(value, values[value]);
     }
     if (values.picture) formData.append("picturePath", values.picture.name);
 
-    const savedUserResponse = await fetch(
-      "http://localhost:3001/auth/register",
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
-
-    const savedUser = await savedUserResponse.json();
-
-    if (savedUser) {
-      setIsLogin(true);
-      setIsRegister(false);
-      setPageType("login");
-    }
-
-    onsubmitProps.resetForm();
-  };
-
-  const login = async (values, onsubmitProps) => {
-    const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
-    });
-
-    const validUser = await loggedInResponse.json();
-    if (validUser) {
-      setIsLogin(false);
-      setIsRegister(false);
-      setIsOtp(true);
-      setPageType("otp");
-    }
-    onsubmitProps.resetForm();
-  };
-
-  const confirmOtp = async (values, onsubmitProps) => {
-    const loginOtpResponse = await fetch("http://localhost:3001/auth/otp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
-    });
-    const loggedIn = await loginOtpResponse.json();
-    if (loggedIn) {
-      dispatch(
-        setLogin({
-          user: loggedIn.user,
-          token: loggedIn.token,
-        })
+    try {
+      const savedUserResponse = await fetch(
+        "http://localhost:3001/auth/register",
+        {
+          method: "POST",
+          body: formData,
+        }
       );
-      onsubmitProps.resetForm();
-      navigate("/home");
+
+      const savedUser = await savedUserResponse.json();
+      console.log("User registered:", savedUser);
+
+      if (savedUser) {
+        setPageType("login");
+        onSubmitProps.resetForm();
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
     }
   };
 
-  const handleFormSubmit = async (values, onsubmitProps) => {
-    if (isLogin) await login(values, onsubmitProps);
-    if (isRegister) await register(values, onsubmitProps);
-    if (isOtp) await confirmOtp(values, onsubmitProps);
+  const login = async (values, onSubmitProps) => {
+    console.log("Logging in with values:", values);
+
+    try {
+      const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      const validUser = await loggedInResponse.json();
+      console.log("User logged in:", validUser);
+
+      if (validUser) {
+        setPageType("otp");
+        onSubmitProps.resetForm();
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+    }
   };
 
-  useEffect(() => {
-    if (isRegister) {
-      setInitialValues(initialValuesRegister);
-      setValidationSchema(registerSchema);
+  const confirmOtp = async (values, onSubmitProps) => {
+    console.log("Confirming OTP with values:", values);
+
+    try {
+      const loginOtpResponse = await fetch("http://localhost:3001/auth/otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      const loggedIn = await loginOtpResponse.json();
+      console.log("OTP confirmed:", loggedIn);
+
+      if (loggedIn) {
+        dispatch(
+          setLogin({
+            user: loggedIn.user,
+            token: loggedIn.token,
+          })
+        );
+        onSubmitProps.resetForm();
+        navigate("/home");
+      }
+    } catch (error) {
+      console.error("OTP confirmation error:", error);
     }
-    if (isLogin) {
-      setInitialValues(initialValuesLogin);
-      setValidationSchema(loginSchema);
-    }
-    if (isOtp) {
-      setInitialValues(initialValuesOtp);
-      setValidationSchema(otpSchema);
-    }
-  }, [isRegister, isLogin, isOtp]);
+  };
+
+  const handleFormSubmit = async (values, onSubmitProps) => {
+    console.log("Form submitted with values:", values, "Page type:", pageType);
+    if (pageType === "login") await login(values, onSubmitProps);
+    if (pageType === "register") await register(values, onSubmitProps);
+    if (pageType === "otp") await confirmOtp(values, onSubmitProps);
+  };
 
   return (
-    <>
-      {isLogin && (
-        <Formik
-          onSubmit={handleFormSubmit}
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleBlur,
-            handleChange,
-            handleSubmit,
-            resetForm,
-          }) => (
-            <form onSubmit={handleSubmit}>
-              <Box
-                display={"grid"}
-                gap={"30px"}
-                gridTemplateColumns={"repeat(4, minmax(0, 1fr))"}
-                sx={{
-                  "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
-                }}
-              >
+    <Formik
+      onSubmit={handleFormSubmit}
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      enableReinitialize
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleBlur,
+        handleChange,
+        handleSubmit,
+        setFieldValue,
+        resetForm,
+      }) => (
+        <form onSubmit={handleSubmit}>
+          <Box
+            display={"grid"}
+            gap={"30px"}
+            gridTemplateColumns={"repeat(4, minmax(0, 1fr))"}
+            sx={{
+              "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
+            }}
+          >
+            {pageType === "login" && (
+              <>
                 <TextField
                   label={"Phone Number"}
                   onBlur={handleBlur}
@@ -195,16 +216,14 @@ const Form = () => {
                     Boolean(touched.phoneNumber) && Boolean(errors.phoneNumber)
                   }
                   helperText={touched.phoneNumber && errors.phoneNumber}
-                  sx={{
-                    gridColumn: "span 4",
-                  }}
+                  sx={{ gridColumn: "span 4" }}
                 />
 
-                {/* BUTTONS */}
                 <Box gridColumn={"span 4"} borderRadius={"5px"} p={"1rem"}>
                   <Button
                     fullWidth
                     type="submit"
+                    value="login"
                     sx={{
                       m: "2rem 0",
                       p: "1rem",
@@ -219,9 +238,7 @@ const Form = () => {
                   </Button>
                   <Typography
                     onClick={() => {
-                      setIsLogin(false);
                       setPageType("register");
-                      setIsRegister(true);
                       resetForm();
                     }}
                     sx={{
@@ -237,36 +254,11 @@ const Form = () => {
                     Don't have an account? Sign Up here
                   </Typography>
                 </Box>
-              </Box>
-            </form>
-          )}
-        </Formik>
-      )}
-      {isRegister && (
-        <Formik
-          onSubmit={handleFormSubmit}
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleBlur,
-            handleChange,
-            handleSubmit,
-            setFieldValue,
-            resetForm,
-          }) => (
-            <form onSubmit={handleSubmit}>
-              <Box
-                display={"grid"}
-                gap={"30px"}
-                gridTemplateColumns={"repeat(4, minmax(0, 1fr))"}
-                sx={{
-                  "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
-                }}
-              >
+              </>
+            )}
+
+            {pageType === "register" && (
+              <>
                 <TextField
                   label={"First Name"}
                   onBlur={handleBlur}
@@ -277,9 +269,7 @@ const Form = () => {
                     Boolean(touched.firstName) && Boolean(errors.firstName)
                   }
                   helperText={touched.firstName && errors.firstName}
-                  sx={{
-                    gridColumn: "span 2",
-                  }}
+                  sx={{ gridColumn: "span 2" }}
                 />
                 <TextField
                   label={"Last Name"}
@@ -289,9 +279,7 @@ const Form = () => {
                   name="lastName"
                   error={Boolean(touched.lastName) && Boolean(errors.lastName)}
                   helperText={touched.lastName && errors.lastName}
-                  sx={{
-                    gridColumn: "span 2",
-                  }}
+                  sx={{ gridColumn: "span 2" }}
                 />
                 <TextField
                   label={"Location"}
@@ -301,9 +289,7 @@ const Form = () => {
                   name="location"
                   error={Boolean(touched.location) && Boolean(errors.location)}
                   helperText={touched.location && errors.location}
-                  sx={{
-                    gridColumn: "span 4",
-                  }}
+                  sx={{ gridColumn: "span 4" }}
                 />
                 <Box
                   gridColumn={"span 4"}
@@ -312,8 +298,8 @@ const Form = () => {
                   p={"1rem"}
                 >
                   <DropZone
-                    acceptedFiles={".jpg,jpeg,.png"}
                     multiple={false}
+                    acceptedFiles=".jpg,.jpeg,.png"
                     onDrop={(acceptedFiles) =>
                       setFieldValue("picture", acceptedFiles[0])
                     }
@@ -328,11 +314,8 @@ const Form = () => {
                         }}
                       >
                         <input
-                          label="picture"
-                          title="profile picture"
-                          placeholder="Add Picture here"
                           name="picture"
-                          defaultValue=""
+                          type="file"
                           {...getInputProps()}
                         />
                         {!values.picture ? (
@@ -357,16 +340,14 @@ const Form = () => {
                     Boolean(touched.phoneNumber) && Boolean(errors.phoneNumber)
                   }
                   helperText={touched.phoneNumber && errors.phoneNumber}
-                  sx={{
-                    gridColumn: "span 4",
-                  }}
+                  sx={{ gridColumn: "span 4" }}
                 />
 
-                {/* BUTTONS */}
                 <Box gridColumn={"span 4"} borderRadius={"5px"} p={"1rem"}>
                   <Button
                     fullWidth
                     type="submit"
+                    value="register"
                     sx={{
                       m: "2rem 0",
                       p: "1rem",
@@ -381,9 +362,7 @@ const Form = () => {
                   </Button>
                   <Typography
                     onClick={() => {
-                      setIsRegister(false);
                       setPageType("login");
-                      setIsLogin(true);
                       resetForm();
                     }}
                     sx={{
@@ -399,51 +378,23 @@ const Form = () => {
                     Already have an account? Login Here
                   </Typography>
                 </Box>
-              </Box>
-            </form>
-          )}
-        </Formik>
-      )}
-      {isOtp && (
-        <Formik
-          onSubmit={handleFormSubmit}
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleBlur,
-            handleChange,
-            handleSubmit,
-            setFieldValue,
-            resetForm,
-          }) => (
-            <form onSubmit={handleSubmit}>
-              <Box
-                display={"grid"}
-                gap={"30px"}
-                gridTemplateColumns={"repeat(4, minmax(0, 1fr))"}
-                sx={{
-                  "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
-                }}
-              >
+              </>
+            )}
+
+            {pageType === "otp" && (
+              <>
                 <TextField
                   label={"Enter OTP"}
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  onSubmit={() => resetForm()}
                   value={values.otp}
                   name="otp"
                   error={Boolean(touched.otp) && Boolean(errors.otp)}
                   helperText={touched.otp && errors.otp}
-                  sx={{
-                    gridColumn: "span 4",
-                  }}
+                  sx={{ gridColumn: "span 4" }}
                 />
 
-                <Box gridColumn={"span 4"} borderRadius={"5px"}>
+                <Box gridColumn={"span 4"} borderRadius={"5px"} p={"1rem"}>
                   <Button
                     fullWidth
                     type="submit"
@@ -470,15 +421,15 @@ const Form = () => {
                       },
                     }}
                   >
-                    Lookout for an OTP sent to your phone
+                    Look out for an OTP sent to your phone
                   </Typography>
                 </Box>
-              </Box>
-            </form>
-          )}
-        </Formik>
+              </>
+            )}
+          </Box>
+        </form>
       )}
-    </>
+    </Formik>
   );
 };
 
