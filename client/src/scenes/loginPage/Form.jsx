@@ -20,7 +20,7 @@ const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
   location: yup.string().required("Name of your neighborhood"),
-  picture: yup.string().required("Please select a profile picture"),
+  picture: yup.mixed().required("Please select a profile picture"),
   phoneNumber: yup
     .string()
     .required("Phone number is required to proceed")
