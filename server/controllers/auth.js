@@ -31,10 +31,12 @@ export const register = async (req, res) => {
       location,
       phoneNumber,
       otp: hashedOtp,
-      status: Status.REGISTERED,
-      role: Role.Guest,
+      status: 'REGISTERED',
+      role: 'GUEST',
       picturePath,
     });
+
+    console.log('newUser', newUser);
 
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
