@@ -31,14 +31,14 @@ const userSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: [Status.Registered, Status.Member],
-      default: Status.Registered,
+      enum: [Status.REGISTERED, Status.MEMBER],
+      default: 'REGISTERED',
       required: true,
     },
     role: {
       type: String,
-      enum: [Role.Admin, Role.User, Role.Guest],
-      default: Role.Guest,
+      enum: [Role.ADMIN, Role.USER, Role.GUEST],
+      default: 'GUEST',
       required: true,
     },
     picturePath: {
