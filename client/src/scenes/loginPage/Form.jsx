@@ -20,7 +20,7 @@ const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
   location: yup.string().required("Name of your neighborhood"),
-  picturePath: yup.string().required("Please select a profile picture"),
+  picture: yup.string().required("Please select a profile picture"),
   phoneNumber: yup
     .string()
     .required("Phone number is required to proceed")
@@ -51,7 +51,7 @@ const initialValuesRegister = {
   firstName: "",
   lastName: "",
   location: "",
-  picturePath: "",
+  picture: "",
   phoneNumber: "",
 };
 
@@ -93,7 +93,6 @@ const Form = () => {
   }, [pageType]);
 
   const register = async (values, onSubmitProps) => {
-    console.log("Registering user with values:", values);
     const formData = new FormData();
     for (let value in values) {
       formData.append(value, values[value]);
@@ -110,20 +109,17 @@ const Form = () => {
       );
 
       const savedUser = await savedUserResponse.json();
-      console.log("User registered:", savedUser);
 
       if (savedUser) {
         setPageType("login");
         onSubmitProps.resetForm();
       }
     } catch (error) {
-      console.error("Registration error:", error);
+      throw new Error(error);
     }
   };
 
   const login = async (values, onSubmitProps) => {
-    console.log("Logging in with values:", values);
-
     try {
       const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
         method: "POST",
@@ -132,20 +128,17 @@ const Form = () => {
       });
 
       const validUser = await loggedInResponse.json();
-      console.log("User logged in:", validUser);
 
       if (validUser) {
         setPageType("otp");
         onSubmitProps.resetForm();
       }
     } catch (error) {
-      console.error("Login error:", error);
+      throw new Error(error);
     }
   };
 
   const confirmOtp = async (values, onSubmitProps) => {
-    console.log("Confirming OTP with values:", values);
-
     try {
       const loginOtpResponse = await fetch("http://localhost:3001/auth/otp", {
         method: "POST",
@@ -154,7 +147,6 @@ const Form = () => {
       });
 
       const loggedIn = await loginOtpResponse.json();
-      console.log("OTP confirmed:", loggedIn);
 
       if (loggedIn) {
         dispatch(
@@ -167,12 +159,11 @@ const Form = () => {
         navigate("/home");
       }
     } catch (error) {
-      console.error("OTP confirmation error:", error);
+      throw new Error(error);
     }
   };
 
   const handleFormSubmit = async (values, onSubmitProps) => {
-    console.log("Form submitted with values:", values, "Page type:", pageType);
     if (pageType === "login") await login(values, onSubmitProps);
     if (pageType === "register") await register(values, onSubmitProps);
     if (pageType === "otp") await confirmOtp(values, onSubmitProps);
@@ -313,11 +304,7 @@ const Form = () => {
                           "&:hover": { cursor: "pointer" },
                         }}
                       >
-                        <input
-                          name="picture"
-                          type="file"
-                          {...getInputProps()}
-                        />
+                        <input {...getInputProps()} />
                         {!values.picture ? (
                           <p>Add Picture Here</p>
                         ) : (
