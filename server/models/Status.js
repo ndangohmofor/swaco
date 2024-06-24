@@ -5,6 +5,7 @@ const statusSchema = new mongoose.Schema({
     type: String,
     enum: ['REGISTERED', 'MEMBER'],
     default: 'REGISTERED',
+    required: true,
   },
 });
 
