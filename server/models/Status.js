@@ -4,6 +4,7 @@ const statusSchema = new mongoose.Schema({
   status: {
     type: String,
     enum: ['REGISTERED', 'MEMBER'],
+    default: 'REGISTERED',
   },
 });
 
