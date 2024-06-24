@@ -4,6 +4,7 @@ const roleSchema = new mongoose.Schema({
   role: {
     type: String,
     enum: ['ADMIN', 'USER', 'GUEST'],
+    default: 'GUEST',
     required: true,
   },
 });
