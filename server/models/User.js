@@ -26,7 +26,6 @@ const userSchema = new mongoose.Schema(
       required: false,
       max: 5,
       default: null,
-      expiresAt: { type: Date, expires: 600 },
     },
     status: {
       type: String,
