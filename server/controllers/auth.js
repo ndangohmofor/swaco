@@ -37,23 +37,22 @@ export const register = async (req, res) => {
     });
 
     const savedUser = await newUser.save();
-    res.status(201).json(savedUser);
+    let smsSent = false;
+
+    if (smsSent) {
+      return res
+        .status(201)
+        .json({
+          user: savedUser,
+          message: 'Enter the OTP sent to your number',
+        });
+    } else {
+      return res.status(201).json({
+        user: savedUser,
+        message: 'Failed to send OTP via SMS',
+      });
+    }
   } catch (error) {
     return res.status(500).json({ message: error.message });
-  }
-
-  let smsSent = false;
-  //Send the OTP to the user
-
-  if (smsSent) {
-    return res.status(200).json({
-      success: true,
-      message: 'OTP sent successfully via SMS',
-    });
-  } else {
-    return res.status(500).json({
-      success: false,
-      message: 'Failed to send OTP via SMS',
-    });
   }
 };
