@@ -10,6 +10,7 @@ import dotenv from 'dotenv';
 import multer from 'multer';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import fs from 'fs';
 import { register } from './controllers/auth.js';
 
 /** MIDDLEWARE AND PACKAGE CONFIGURATIONS */
@@ -26,14 +27,16 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '30mb' }));
 app.use(cors());
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
-// app.use(multer().any());
 
 /** FILE STORAGE CONFIGURATIONS */
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const filePath = `public/assets/${req.body.firstName}_${req.body.lastName}`;
-    console.log('filePath: ', filePath);
-    cb(null, filePath);
+    const { phoneNumber } = req.body;
+    const picturePath = `public/assets/${phoneNumber}/`;
+    if (!fs.existsSync(picturePath)) {
+      fs.mkdirSync(picturePath);
+    }
+    cb(null, picturePath);
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
