@@ -141,11 +141,12 @@ const Form = () => {
   };
 
   const confirmOtp = async (values, onSubmitProps) => {
+    values.phoneNumber = phoneNumber;
     try {
       const loginOtpResponse = await fetch("http://localhost:3001/auth/otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ values, phoneNumber }),
+        body: JSON.stringify(values),
       });
 
       const loggedIn = await loginOtpResponse.json();
