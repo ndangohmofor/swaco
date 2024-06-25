@@ -32,13 +32,13 @@ const userSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: [Status.REGISTERED, Status.MEMBER],
+      enum: ['REGISTERED', 'MEMBER', 'VERIFIED'],
       default: 'REGISTERED',
       required: true,
     },
     role: {
       type: String,
-      enum: [Role.ADMIN, Role.USER, Role.GUEST],
+      enum: ['ADMIN', 'USER', 'GUEST'],
       default: 'GUEST',
       required: true,
     },
