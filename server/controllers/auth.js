@@ -1,8 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
-import Status from '../models/Status.js';
-import Role from '../models/Role.js';
 import otpGenerator from 'otp-generator';
 
 /** REGISTER USER */
@@ -31,8 +29,6 @@ export const register = async (req, res) => {
       location,
       phoneNumber,
       otp: hashedOtp,
-      status: Status.REGISTERED,
-      role: Role.Guest,
       picturePath,
     });
 
@@ -40,12 +36,10 @@ export const register = async (req, res) => {
     let smsSent = false;
 
     if (smsSent) {
-      return res
-        .status(201)
-        .json({
-          user: savedUser,
-          message: 'Enter the OTP sent to your number',
-        });
+      return res.status(201).json({
+        user: savedUser,
+        message: 'Enter the OTP sent to your number',
+      });
     } else {
       return res.status(201).json({
         user: savedUser,
