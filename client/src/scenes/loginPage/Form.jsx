@@ -98,7 +98,11 @@ const Form = () => {
     for (let value in values) {
       formData.append(value, values[value]);
     }
-    if (values.picture) formData.append("picturePath", values.picture.name);
+    if (values.picture)
+      formData.append(
+        "picturePath",
+        `${values.phoneNumber}/${values.picture.name}`
+      );
 
     try {
       const savedUserResponse = await fetch(
