@@ -1,6 +1,4 @@
 import mongoose from 'mongoose';
-import Role from './Role.js';
-import Status from './Status.js';
 
 const userSchema = new mongoose.Schema(
   {
