@@ -112,8 +112,8 @@ const Form = () => {
       const savedUser = await savedUserResponse.json();
 
       if (savedUser) {
-        setPageType("otp");
         setPhoneNumber(values.phoneNumber);
+        setPageType("otp");
         onSubmitProps.resetForm();
       }
     } catch (error) {
@@ -132,6 +132,7 @@ const Form = () => {
       const validUser = await loggedInResponse.json();
 
       if (validUser) {
+        setPhoneNumber(values.phoneNumber);
         setPageType("otp");
         onSubmitProps.resetForm();
       }
