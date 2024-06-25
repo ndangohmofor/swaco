@@ -71,6 +71,7 @@ const Form = () => {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
   const [initialValues, setInitialValues] = useState(initialValuesLogin);
   const [validationSchema, setValidationSchema] = useState(loginSchema);
+  const [phoneNumber, setPhoneNumber] = useState();
 
   useEffect(() => {
     switch (pageType) {
@@ -112,6 +113,7 @@ const Form = () => {
 
       if (savedUser) {
         setPageType("otp");
+        setPhoneNumber(values.phoneNumber);
         onSubmitProps.resetForm();
       }
     } catch (error) {
@@ -143,7 +145,7 @@ const Form = () => {
       const loginOtpResponse = await fetch("http://localhost:3001/auth/otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ values, phoneNumber }),
       });
 
       const loggedIn = await loginOtpResponse.json();
