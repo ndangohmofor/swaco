@@ -111,7 +111,7 @@ const Form = () => {
       const savedUser = await savedUserResponse.json();
 
       if (savedUser) {
-        setPageType("login");
+        setPageType("otp");
         onSubmitProps.resetForm();
       }
     } catch (error) {
