@@ -51,8 +51,8 @@ const initialValuesRegister = {
   firstName: "",
   lastName: "",
   location: "",
-  picture: "",
   phoneNumber: "",
+  picture: "",
 };
 
 const initialValuesLogin = {
