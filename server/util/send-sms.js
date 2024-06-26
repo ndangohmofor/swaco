@@ -1,13 +1,10 @@
-//Convert this into a function that can be called from other files and takes a destination phone number as a parameter
 'use strict';
 import AWS from 'aws-sdk';
 
 const aws_region = 'us-east-1';
 const origNumber = process.env.ORIGINATION_NUMBER;
-const destinationNumber = '';
 const languageCode = 'en-US';
-
-const voidId = 'Ruth';
+const voiceId = 'Ruth';
 
 const ssmlMessage =
   '<speak>' +
@@ -28,24 +25,28 @@ AWS.config.update({ region: aws_region });
 
 const pinpointsmsvoice = new AWS.PinpointSMSVoice();
 
-const params = {
-  CallerId: callerId,
-  ConfigurationSetName: configurationSet,
-  Content: {
-    SSMLMessage: {
-      LanguageCode: languageCode,
-      Text: ssmlMessage,
-      VoiceId: voidId,
+function sendVoiceMessage(destinationNumber) {
+  const params = {
+    CallerId: callerId,
+    ConfigurationSetName: configurationSet,
+    Content: {
+      SSMLMessage: {
+        LanguageCode: languageCode,
+        Text: ssmlMessage,
+        VoiceId: voiceId,
+      },
     },
-  },
-  DestinationPhoneNumber: destinationNumber,
-  OriginationPhoneNumber: origNumber,
-};
+    DestinationPhoneNumber: destinationNumber,
+    OriginationPhoneNumber: origNumber,
+  };
 
-pinpointsmsvoice.sendVoiceMessage(params, function (err, data) {
-  if (err) {
-    console.log(err.message);
-  } else {
-    console.log('Message sent! Message ID: ' + data['MessageId']);
-  }
-});
+  pinpointsmsvoice.sendVoiceMessage(params, function (err, data) {
+    if (err) {
+      console.log(err.message);
+    } else {
+      console.log('Message sent! Message ID: ' + data['MessageId']);
+    }
+  });
+}
+
+export default sendVoiceMessage;
