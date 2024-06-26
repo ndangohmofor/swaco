@@ -1,3 +1,4 @@
+//Convert this into a function that can be called from other files and takes a destination phone number as a parameter
 'use strict';
 import AWS from 'aws-sdk';
 
@@ -25,6 +26,8 @@ const credentials = new AWS.SharedIniFileCredentials({
 AWS.config.credentials = credentials;
 AWS.config.update({ region: aws_region });
 
+const pinpointsmsvoice = new AWS.PinpointSMSVoice();
+
 const params = {
   CallerId: callerId,
   ConfigurationSetName: configurationSet,
@@ -38,3 +41,11 @@ const params = {
   DestinationPhoneNumber: destinationNumber,
   OriginationPhoneNumber: origNumber,
 };
+
+pinpointsmsvoice.sendVoiceMessage(params, function (err, data) {
+  if (err) {
+    console.log(err.message);
+  } else {
+    console.log('Message sent! Message ID: ' + data['MessageId']);
+  }
+});
