@@ -13,3 +13,5 @@ const ssmlMessage =
   "<amazon:effect phonation='soft'>Thank you for listening." +
   '</amazon:effect>' +
   '</speak>';
+
+const configurationSet = 'ConfigSet';
