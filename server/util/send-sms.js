@@ -1,7 +1,9 @@
 'use strict';
+import AWS from 'aws-sdk';
 
 const aws_region = 'us-east-1';
 const origNumber = process.env.ORIGINATION_NUMBER;
+const destinationNumber = '';
 const languageCode = 'en-US';
 
 const voidId = 'Ruth';
@@ -16,3 +18,23 @@ const ssmlMessage =
 
 const configurationSet = 'ConfigSet';
 const callerId = process.env.CALLER_ID;
+
+const credentials = new AWS.SharedIniFileCredentials({
+  profile: 'default',
+});
+AWS.config.credentials = credentials;
+AWS.config.update({ region: aws_region });
+
+const params = {
+  CallerId: callerId,
+  ConfigurationSetName: configurationSet,
+  Content: {
+    SSMLMessage: {
+      LanguageCode: languageCode,
+      Text: ssmlMessage,
+      VoiceId: voidId,
+    },
+  },
+  DestinationPhoneNumber: destinationNumber,
+  OriginationPhoneNumber: origNumber,
+};
