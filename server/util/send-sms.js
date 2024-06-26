@@ -15,3 +15,4 @@ const ssmlMessage =
   '</speak>';
 
 const configurationSet = 'ConfigSet';
+const callerId = process.env.CALLER_ID;
