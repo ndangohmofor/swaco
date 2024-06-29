@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from "../navbar";
+import { Box } from "@mui/material";
 
 const Index = () => {
   return (
-    <div>
+    <Box>
       <Navbar />
-    </div>
+    </Box>
   );
 };
 
