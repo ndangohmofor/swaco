@@ -1,6 +1,4 @@
 import mongoose from 'mongoose';
-import Role from './Role.js';
-import Status from './Status.js';
 
 const userSchema = new mongoose.Schema(
   {
@@ -31,14 +29,14 @@ const userSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: [Status.Registered, Status.Member],
-      default: Status.Registered,
+      enum: ['REGISTERED', 'MEMBER', 'VERIFIED'],
+      default: 'REGISTERED',
       required: true,
     },
     role: {
       type: String,
-      enum: [Role.Admin, Role.User, Role.Guest],
-      default: Role.Guest,
+      enum: ['ADMIN', 'USER', 'GUEST'],
+      default: 'GUEST',
       required: true,
     },
     picturePath: {

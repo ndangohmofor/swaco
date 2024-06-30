@@ -51,8 +51,8 @@ const initialValuesRegister = {
   firstName: "",
   lastName: "",
   location: "",
-  picture: "",
   phoneNumber: "",
+  picture: "",
 };
 
 const initialValuesLogin = {
@@ -71,6 +71,7 @@ const Form = () => {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
   const [initialValues, setInitialValues] = useState(initialValuesLogin);
   const [validationSchema, setValidationSchema] = useState(loginSchema);
+  const [phoneNumber, setPhoneNumber] = useState();
 
   useEffect(() => {
     switch (pageType) {
@@ -97,7 +98,11 @@ const Form = () => {
     for (let value in values) {
       formData.append(value, values[value]);
     }
-    if (values.picture) formData.append("picturePath", values.picture.name);
+    if (values.picture)
+      formData.append(
+        "picturePath",
+        `${values.phoneNumber}/${values.picture.name}`
+      );
 
     try {
       const savedUserResponse = await fetch(
@@ -111,7 +116,8 @@ const Form = () => {
       const savedUser = await savedUserResponse.json();
 
       if (savedUser) {
-        setPageType("login");
+        setPhoneNumber(values.phoneNumber);
+        setPageType("otp");
         onSubmitProps.resetForm();
       }
     } catch (error) {
@@ -130,6 +136,7 @@ const Form = () => {
       const validUser = await loggedInResponse.json();
 
       if (validUser) {
+        setPhoneNumber(values.phoneNumber);
         setPageType("otp");
         onSubmitProps.resetForm();
       }
@@ -139,6 +146,7 @@ const Form = () => {
   };
 
   const confirmOtp = async (values, onSubmitProps) => {
+    values.phoneNumber = phoneNumber;
     try {
       const loginOtpResponse = await fetch("http://localhost:3001/auth/otp", {
         method: "POST",
