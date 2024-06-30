@@ -29,11 +29,6 @@ export const register = async (req, res) => {
       location,
       phoneNumber,
       otp: hashedOtp,
-<<<<<<< HEAD
-      status: 'REGISTERED',
-      role: 'GUEST',
-=======
->>>>>>> d9096534d9ab02b54ba10c94b885fa5911855aed
       picturePath,
     });
 
