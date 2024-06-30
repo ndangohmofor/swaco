@@ -127,7 +127,7 @@ const Index = () => {
                   <Button
                     key={index}
                     variant="outlined"
-                    onClick={navigate(item.cardActionLink)}
+                    onClick={() => navigate(item.cardActionLink)}
                   >
                     {item.cardAction}
                   </Button>
