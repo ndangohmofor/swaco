@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../navbar";
-import { Box, Card, CardMedia, Container } from "@mui/material";
+import { Box, Card, CardMedia, Container, Paper } from "@mui/material";
+import Carousel from "react-material-ui-carousel/dist/components/Carousel";
 
 const Index = () => {
   return (
@@ -15,6 +16,24 @@ const Index = () => {
           scrollSnapType: "y mandatory",
         }}
       >
+        <Card
+          sx={{
+            height: "100vh",
+            scrollSnapAlign: "start",
+            alignItems: "center",
+            justifyContent: "center",
+            borderBottom: "1px solid lightgray",
+          }}
+        >
+          <CardMedia
+            component={"video"}
+            className="mobile-video"
+            src="/assets/videos/placeholder_video.mp4"
+            autoPlay
+            loop
+            muted
+          />
+        </Card>
         <Box
           sx={{
             height: "100vh",
@@ -24,24 +43,12 @@ const Index = () => {
             borderBottom: "1px solid lightgrey",
           }}
         >
-          <CardMedia
-            component={"video"}
-            className="mobile-video"
-            src="/assets/placeholder_video.mp4"
-            autoPlay
-            loop
-            muted
-          />
+          <Carousel>
+            <Card>
+              <CardMedia component={"image"} height={"100%"} image="" alt="" />
+            </Card>
+          </Carousel>
         </Box>
-        <Card
-          sx={{
-            height: "100vh",
-            scrollSnapAlign: "start",
-            alignItems: "center",
-            justifyContent: "center",
-            borderBottom: "1px solid lightgrey",
-          }}
-        ></Card>
       </Container>
     </>
   );
