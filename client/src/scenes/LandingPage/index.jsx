@@ -5,6 +5,7 @@ import {
   Button,
   Card,
   CardMedia,
+  CardActions,
   Container,
   Paper,
   Stack,
@@ -93,6 +94,9 @@ const Index = () => {
                   alt={item.alt}
                   sx={{ height: "100vh", width: "100%" }}
                 />
+                <CardActions>
+                  <Button size="large">{item.cardAction}</Button>
+                </CardActions>
               </Card>
             ))}
           </Carousel>
