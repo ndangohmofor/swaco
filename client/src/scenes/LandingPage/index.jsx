@@ -83,21 +83,50 @@ const Index = () => {
           sx={{
             height: "100vh",
             scrollSnapAlign: "start",
+            position: "relative", // Ensure the paper container is the positioning reference
           }}
         >
           <Carousel>
             {photos.map((item, index) => (
-              <Card key={index}>
+              <Box
+                key={index}
+                sx={{
+                  position: "relative",
+                  height: "100vh",
+                  width: "100%",
+                }}
+              >
                 <CardMedia
                   component="img"
                   image={item.img}
                   alt={item.alt}
                   sx={{ height: "100vh", width: "100%" }}
                 />
-                <CardActions>
-                  <Button size="large">{item.cardAction}</Button>
-                </CardActions>
-              </Card>
+                <Stack
+                  direction={"row"}
+                  spacing={2}
+                  sx={{
+                    position: "absolute",
+                    bottom: 160,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    zIndex: 1,
+                    background: "rgba(0, 0, 0, 0.5)", //Make the button more visible
+                    padding: 1, // Adds padding to the button
+                    borderRadius: 1, // Add round corners to the button
+                  }}
+                >
+                  <Button
+                    key={index}
+                    variant="outlined"
+                    sx={{
+                      color: "white",
+                    }}
+                  >
+                    {item.cardAction}
+                  </Button>
+                </Stack>
+              </Box>
             ))}
           </Carousel>
         </Paper>
