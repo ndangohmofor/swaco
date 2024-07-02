@@ -9,6 +9,7 @@ import {
   Container,
   Paper,
   Stack,
+  useTheme,
 } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 import { useNavigate } from "react-router-dom";
@@ -53,6 +54,7 @@ const Index = () => {
     },
   ];
   const navigate = useNavigate();
+  const { palette } = useTheme();
 
   return (
     <>
@@ -131,10 +133,10 @@ const Index = () => {
                     sx={{
                       m: "2rem 0",
                       p: "1rem",
-                      backgroundColor: palette.primary.main,
                       color: palette.background.alt,
                       "&:hover": {
-                        color: palette.primary.main,
+                        cursor: "default",
+                        color: palette.primary.light,
                       },
                     }}
                   >
