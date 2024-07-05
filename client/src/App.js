@@ -8,6 +8,7 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
 import Index from "./scenes/LandingPage";
+import Constitution from "./scenes/constitution";
 
 function App() {
   const mode = useSelector((state) => state.mode);
@@ -20,6 +21,7 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Routes>
+            <Route path="/constitution" element={<Constitution />} />
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<LoginPage />} />
             <Route
