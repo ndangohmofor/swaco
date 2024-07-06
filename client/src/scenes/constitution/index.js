@@ -7,12 +7,14 @@ import {
   CardActions,
   CardContent,
   Container,
+  Divider,
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
   Paper,
   Typography,
+  ListItem,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-material-ui-carousel";
@@ -113,7 +115,7 @@ const Constitution = () => {
             position: "relative",
           }}
         >
-          <Carousel>
+          <Carousel stopAutoPlayOnHover interval={5000} duration={1000}>
             {constition.map((item, index) => {
               return (
                 <Card index={index}>
@@ -138,19 +140,24 @@ const Constitution = () => {
                     </Typography>
                     <List component="div" sx={{ padding: "10px" }}>
                       {item.content.map((c, idx) => (
-                        <ListItemButton key={idx}>
-                          <ListItemIcon>
-                            <StarBorder />
-                          </ListItemIcon>
-                          <ListItemText
-                            sx={{
-                              padding: "10px",
-                              fontFamily: "Poppins",
-                              fontSize: "16px",
-                            }}
-                            primary={c}
-                          />
-                        </ListItemButton>
+                        <>
+                          <ListItem>
+                            <ListItemButton key={idx}>
+                              <ListItemIcon>
+                                <StarBorder />
+                              </ListItemIcon>
+                              <ListItemText
+                                primaryTypographyProps={{
+                                  padding: "10px",
+                                  fontWeight: "medium",
+                                  fontSize: "16px",
+                                }}
+                                primary={c}
+                              />
+                            </ListItemButton>
+                          </ListItem>
+                          <Divider variant="inset" component="li" />
+                        </>
                       ))}
                     </List>
                   </CardContent>
