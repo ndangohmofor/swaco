@@ -5,7 +5,6 @@ import {
   Button,
   Card,
   CardMedia,
-  CardActions,
   Container,
   Paper,
   Stack,
@@ -79,7 +78,7 @@ const Index = () => {
           <Card>
             <CardMedia
               component="video"
-              src="/assets/videos/placeholder-video.mp4"
+              src="/assets/videos/placeholder_video.mp4"
               title="Your Video"
               controls
               sx={{ height: "100%", width: "100%" }}
