@@ -15,6 +15,7 @@ import {
   Paper,
   Typography,
   ListItem,
+  Link,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-material-ui-carousel";
@@ -161,19 +162,26 @@ const Constitution = () => {
                       ))}
                     </List>
                   </CardContent>
-                  <CardActions>
-                    <Button
-                      sx={{ padding: "10px" }}
-                      onClick={() => navigate(-1)}
-                      size="large"
-                    >
-                      Back
-                    </Button>
-                  </CardActions>
+                  <CardActions></CardActions>
                 </Card>
               );
             })}
           </Carousel>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              sx={{ padding: "10px" }}
+              onClick={() => navigate(-1)}
+              size="large"
+            >
+              Back
+            </Button>
+          </Box>
         </Paper>
       </Container>
     </>
