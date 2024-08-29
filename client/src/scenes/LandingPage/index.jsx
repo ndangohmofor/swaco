@@ -73,25 +73,6 @@ const Index = () => {
           sx={{
             height: "100vh",
             scrollSnapAlign: "start",
-          }}
-        >
-          <Card>
-            <CardMedia
-              component="video"
-              src="/assets/videos/placeholder_video.mp4"
-              title="Your Video"
-              controls
-              sx={{ height: "100%", width: "100%" }}
-              autoPlay
-              loop
-              muted
-            />
-          </Card>
-        </Paper>
-        <Paper
-          sx={{
-            height: "100vh",
-            scrollSnapAlign: "start",
             position: "relative", // Ensure the paper container is the positioning reference
           }}
         >
@@ -145,6 +126,25 @@ const Index = () => {
               </Box>
             ))}
           </Carousel>
+        </Paper>
+        <Paper
+          sx={{
+            height: "100vh",
+            scrollSnapAlign: "start",
+          }}
+        >
+          <Card>
+            <CardMedia
+              component="video"
+              src="/assets/videos/placeholder_video.mp4"
+              title="Your Video"
+              controls
+              sx={{ height: "100%", width: "100%" }}
+              autoPlay
+              loop
+              muted
+            />
+          </Card>
         </Paper>
         <Paper
           sx={{
