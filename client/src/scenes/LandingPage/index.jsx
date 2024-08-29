@@ -145,6 +145,14 @@ const Index = () => {
               </Box>
             ))}
           </Carousel>
+        </Paper>
+        <Paper
+          sx={{
+            height: "100vh",
+            scrollSnapAlign: "start",
+            position: "relative", // Ensure the paper container is the positioning reference
+          }}
+        >
           <Carousel>
             {photos.map((item, index) => (
               <Box
