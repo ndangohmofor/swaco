@@ -131,12 +131,13 @@ const Index = () => {
           sx={{
             height: "100vh",
             scrollSnapAlign: "start",
+            position: "relative", // Ensure the paper container is the positioning reference
           }}
         >
           <Card>
             <CardMedia
               component="video"
-              src="/assets/videos/placeholder_video.mp4"
+              src="/assets/videos/Swaco_Low.mp4"
               title="Your Video"
               controls
               sx={{ height: "100%", width: "100%" }}
