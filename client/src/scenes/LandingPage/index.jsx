@@ -55,13 +55,13 @@ const Index = () => {
 
   const pictures = [
     {
-      img: "/assets/photos/mobile/11.jpeg",
+      img: "/assets/photos/mobile2/11.jpeg",
       alt: "Beautiful Swaco ladies",
       cardAction: "About us",
       cardActionLink: "/about",
     },
     {
-      img: "/assets/photos/mobile/12.jpeg",
+      img: "/assets/photos/mobile2/12.jpeg",
       alt: "Swaco meeting in progress",
       cardAction: "Our Members",
       cardActionLink: "/members",
