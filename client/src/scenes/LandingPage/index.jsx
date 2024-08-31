@@ -52,6 +52,46 @@ const Index = () => {
       cardActionLink: "/contactus",
     },
   ];
+
+  const pictures = [
+    {
+      img: "/assets/photos/mobile/1.png",
+      alt: "Beautiful Swaco ladies",
+      cardAction: "About us",
+      cardActionLink: "/about",
+    },
+    {
+      img: "/assets/photos/mobile/2.png",
+      alt: "Swaco meeting in progress",
+      cardAction: "Our Members",
+      cardActionLink: "/members",
+    },
+    {
+      img: "/assets/photos/mobile/3.png",
+      alt: "Swaco group photo",
+      cardAction: "Our Ex Co",
+      cardActionLink: "/exco",
+    },
+    {
+      img: "/assets/photos/mobile/4.png",
+      alt: "Swaco women in solidarity",
+      cardAction: "Our Constitution",
+      cardActionLink: "/constitution",
+    },
+    {
+      img: "/assets/photos/mobile/5.png",
+      alt: "Swaco men behind the women",
+      cardAction: "Becoming a member",
+      cardActionLink: "/membership",
+    },
+    {
+      img: "/assets/photos/mobile/6.png",
+      alt: "Swaco meeting item 11",
+      cardAction: "Contact us",
+      cardActionLink: "/contactus",
+    },
+  ];
+
   const navigate = useNavigate();
   const { palette } = useTheme();
 
