@@ -153,7 +153,7 @@ const Index = () => {
           }}
         >
           <Carousel>
-            {photos.map((item, index) => (
+            {pictures.map((item, index) => (
               <Box
                 key={index}
                 sx={{
@@ -203,6 +203,7 @@ const Index = () => {
             ))}
           </Carousel>
         </Paper>
+
         <Paper
           sx={{
             height: "100vh",
@@ -223,6 +224,7 @@ const Index = () => {
             />
           </Card>
         </Paper>
+
         <Paper
           sx={{
             height: "100vh",
@@ -231,7 +233,7 @@ const Index = () => {
           }}
         >
           <Carousel>
-            {pictures.map((item, index) => (
+            {photos.map((item, index) => (
               <Box
                 key={index}
                 sx={{
