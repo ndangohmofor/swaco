@@ -231,7 +231,7 @@ const Index = () => {
           }}
         >
           <Carousel>
-            {photos.map((item, index) => (
+            {pictures.map((item, index) => (
               <Box
                 key={index}
                 sx={{
