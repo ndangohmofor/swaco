@@ -99,8 +99,8 @@ const Index = () => {
     {
       img: "/assets/photos/mobile2/18.jpeg",
       alt: "Swaco meeting item 11",
-      cardAction: "Contact us",
-      cardActionLink: "/contactus",
+      cardAction: "We are together. We are one!",
+      // cardActionLink: "/contactus",
     },
     {
       img: "/assets/photos/mobile2/19.jpeg",
