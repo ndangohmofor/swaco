@@ -111,14 +111,14 @@ const Index = () => {
     {
       img: "/assets/photos/mobile2/20.jpeg",
       alt: "Swaco meeting item 11",
-      cardAction: "Contact us",
-      cardActionLink: "/contactus",
+      cardAction: "Living and bonding in solidarity",
+      // cardActionLink: "/contactus",
     },
     {
       img: "/assets/photos/mobile2/21.jpeg",
       alt: "Swaco meeting item 11",
-      cardAction: "Contact us",
-      cardActionLink: "/contactus",
+      cardAction: "Living and bonding in solidarity",
+      // cardActionLink: "/contactus",
     },
     {
       img: "/assets/photos/mobile2/22.jpeg",
