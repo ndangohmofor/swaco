@@ -57,32 +57,32 @@ const Index = () => {
     {
       img: "/assets/photos/mobile2/11.jpeg",
       alt: "Members of SWACO",
-      cardAction: "About us",
+      cardAction: "Members of SWACO",
       // cardActionLink: "/about",
     },
     {
       img: "/assets/photos/mobile2/12.jpeg",
       alt: "Part of our abled excecutive team",
-      cardAction: "Our Members",
+      cardAction: "Part of our abled excecutive team",
       // cardActionLink: "/members",
     },
     {
       img: "/assets/photos/mobile2/13.jpeg",
       alt: "Swaco meeting session in progress",
-      cardAction: "Our Ex Co",
+      cardAction: "Swaco meeting session in progress",
       // cardActionLink: "/exco",
     },
     {
       img: "/assets/photos/mobile2/14.jpeg",
       alt: "About to start a Sunday session of SWACO",
-      cardAction: "Our Constitution",
+      cardAction: "bout to start a Sunday session of SWACO",
       // cardActionLink: "/constitution",
     },
     {
       img: "/assets/photos/mobile2/15.jpeg",
       alt: "Swaco men behind the women",
       cardAction: "Witnessing a member tie the knot",
-      cardActionLink: "/membership",
+      // cardActionLink: "/membership",
     },
     {
       img: "/assets/photos/mobile2/16.jpeg",
