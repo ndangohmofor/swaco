@@ -117,7 +117,7 @@ const Index = () => {
     {
       img: "/assets/photos/mobile2/21.jpeg",
       alt: "Swaco meeting item 11",
-      cardAction: "Living and bonding in solidarity",
+      cardAction: "Laughter is the music that fills our lives.",
       // cardActionLink: "/contactus",
     },
     {
