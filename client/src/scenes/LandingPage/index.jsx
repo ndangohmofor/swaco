@@ -49,39 +49,39 @@ const Index = () => {
       img: "/assets/photos/mobile/6.png",
       alt: "Swaco meeting item 11",
       cardAction: "Planning the end of year meeting",
-      cardActionLink: "/contactus",
+      // cardActionLink: "/contactus",
     },
   ];
 
   const pictures = [
     {
       img: "/assets/photos/mobile2/11.jpeg",
-      alt: "Part of our abled excecutive team",
+      alt: "Members of SWACO",
       cardAction: "About us",
-      cardActionLink: "/about",
+      // cardActionLink: "/about",
     },
     {
       img: "/assets/photos/mobile2/12.jpeg",
-      alt: "Swaco meeting in progress",
+      alt: "Part of our abled excecutive team",
       cardAction: "Our Members",
-      cardActionLink: "/members",
+      // cardActionLink: "/members",
     },
     {
       img: "/assets/photos/mobile2/13.jpeg",
-      alt: "Swaco group photo",
+      alt: "Swaco meeting session in progress",
       cardAction: "Our Ex Co",
-      cardActionLink: "/exco",
+      // cardActionLink: "/exco",
     },
     {
       img: "/assets/photos/mobile2/14.jpeg",
-      alt: "Swaco women in solidarity",
+      alt: "About to start a Sunday session of SWACO",
       cardAction: "Our Constitution",
-      cardActionLink: "/constitution",
+      // cardActionLink: "/constitution",
     },
     {
       img: "/assets/photos/mobile2/15.jpeg",
       alt: "Swaco men behind the women",
-      cardAction: "Becoming a member",
+      cardAction: "Witnessing a member tie the knot",
       cardActionLink: "/membership",
     },
     {
