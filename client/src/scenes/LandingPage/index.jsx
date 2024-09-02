@@ -56,7 +56,7 @@ const Index = () => {
   const pictures = [
     {
       img: "/assets/photos/mobile2/11.jpeg",
-      alt: "Beautiful Swaco ladies",
+      alt: "Part of our abled excecutive team",
       cardAction: "About us",
       cardActionLink: "/about",
     },
