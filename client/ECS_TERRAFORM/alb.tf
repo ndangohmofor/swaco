@@ -32,3 +32,19 @@ resource "aws_security_group" "lb" {
       "project" = "swaco"
     }
 }
+
+resource "aws_lb_target_group" "alb-lb-target-group" {
+  name = "alb-lb-target-group"
+  port = 80
+  protocol = "HTTP"
+  target_type = "instance"
+  vpc_id = data.aws_vpc.main.id
+  health_check {
+    path = "/"
+    healthy_threshold = 2
+    unhealthy_threshold = 10
+    timeout = 60
+    interval = 300
+    matcher = "200,301,302"
+  }
+}
