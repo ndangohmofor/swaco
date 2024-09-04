@@ -13,14 +13,14 @@ resource "aws_alb" "prod-alb" {
 resource "aws_security_group" "lb" {
   name = "allow-all-lb"
   vpc_id = data.aws_vpc.main.id
-  ingress = {
+  ingress {
     from_port = 0
     to_port = 0
     protocol = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
   
-  egress = {
+  egress {
     from_port = 0
     to_port = 0
     protocol = "-1"
