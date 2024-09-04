@@ -1,4 +1,4 @@
-resource "aws_iam_role" "ecs=instance-role" {
+resource "aws_iam_role" "ecs-instance-role" {
     name = "ecs-instance-role-prod-web"
     path = "/"
 
