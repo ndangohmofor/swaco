@@ -9,3 +9,7 @@ output "vpc_id" {
 output "public_subnets" {
   value = module.vpc.public_subnets
 }
+
+output "igw-id" {
+  value = module.vpc.igw_id
+}
