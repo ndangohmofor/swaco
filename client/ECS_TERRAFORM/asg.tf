@@ -63,7 +63,7 @@ resource "aws_autoscaling_group" "asg" {
     launch_configuration = aws_launch_configuration.lc.name
     min_size = 1
     max_size = 3
-    desired_capacity = 2
+    desired_capacity = 1
     health_check_type = "ELB"
     health_check_grace_period = 300
     vpc_zone_identifier = module.vpc.public_subnets
