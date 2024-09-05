@@ -1,5 +1,5 @@
 resource "aws_alb" "prod-alb" {
-  name = "prod-ecs-alb"
+  name = "swaco-us-alb"
   load_balancer_type = "application"
   internal = false 
   subnets = module.vpc.public_subnets
