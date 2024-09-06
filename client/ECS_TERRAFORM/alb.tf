@@ -55,7 +55,12 @@ resource "aws_lb_listener" "web-listener-http" {
   protocol = "HTTP"
   default_action {
     type = "redirect"
-    target_group_arn = aws_lb_target_group.alb-lb-target-group.arn
+    # target_group_arn = aws_lb_target_group.alb-lb-target-group.arn
+    redirect {
+      status_code = "HTTP_301"
+      protocol = "HTTPS"
+      port = "443"
+    }
   }
 }
 
