@@ -43,7 +43,7 @@ resource "aws_ecs_service" "service" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.alb-lb-target-group.arn
-    container_name = "pink-slon"
+    container_name = "swaco-client"
     container_port = 80
   }
   #Optional: Allow external changes without Terraform plan difference(for example, ASG)
