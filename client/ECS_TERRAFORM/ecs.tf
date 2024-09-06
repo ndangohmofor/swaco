@@ -51,7 +51,7 @@ resource "aws_ecs_service" "service" {
     ignore_changes = [ desired_count ]
   }
   launch_type = "EC2"
-  depends_on = [ aws_lb_listener.web-listener ]
+  depends_on = [ aws_lb_listener.web-listener-https, aws_lb_listener.web-listener-http ]
 }
 
 resource "aws_cloudwatch_log_group" "log_group" {
