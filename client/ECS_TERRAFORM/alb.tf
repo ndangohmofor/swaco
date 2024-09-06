@@ -51,10 +51,10 @@ resource "aws_lb_target_group" "alb-lb-target-group" {
 
 resource "aws_lb_listener" "web-listener" {
   load_balancer_arn = aws_alb.prod-alb.arn
-  port = 80
-  protocol = "HTTP"
+  port = 443
+  protocol = "HTTPS"
   default_action {
-    type = "forward"
+    type = "redirect"
     target_group_arn = aws_lb_target_group.alb-lb-target-group.arn
   }
 }
