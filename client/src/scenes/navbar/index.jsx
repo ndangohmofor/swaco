@@ -62,6 +62,7 @@ const Navbar = () => {
           alt="swaco logo"
           height={30}
           width={100}
+          onClick={() => navigate("/")}
         />
         {/* </Typography> */}
         {isNonMobileScreens && (
