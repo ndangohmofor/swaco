@@ -57,7 +57,7 @@ const Navbar = () => {
             },
           }}
         >
-          SWACO
+          <img src="/assets/photos/Logo.png" alt="swaco logo" height={30} />
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
