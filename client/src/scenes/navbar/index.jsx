@@ -43,9 +43,9 @@ const Navbar = () => {
   const name = isAuth ? `${user.firstName}` : "Guest";
 
   return (
-    <FlexBetween padding={"1rem 6%"} backgroundColor={alt}>
+    <FlexBetween padding={"0.5rem 2%"} backgroundColor={alt}>
       <FlexBetween gap={"1.75rem"}>
-        <Typography
+        {/* <Typography
           fontWeight={"bold"}
           fontSize={"clamp(1rem, 2rem, 2.25rem)"}
           color={"primary"}
@@ -56,9 +56,14 @@ const Navbar = () => {
               cursor: "pointer",
             },
           }}
-        >
-          <img src="/assets/photos/Logo.png" alt="swaco logo" height={30} />
-        </Typography>
+        > */}
+        <img
+          src="/assets/photos/Logo.png"
+          alt="swaco logo"
+          height={30}
+          width={100}
+        />
+        {/* </Typography> */}
         {isNonMobileScreens && (
           <FlexBetween
             backgroundColor={neutralLight}
