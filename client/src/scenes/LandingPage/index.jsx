@@ -156,7 +156,20 @@ const Index = () => {
             backgroundRepeat: "no-repeat", // Do not repeat the image
           }}
         >
-          <Typography>Southern Cameroonians Association of Ohio</Typography>
+          <Typography
+            sx={{
+              position: "relative",
+              top: "10%",
+              textAlign: "center",
+              width: "100%",
+              color: "#2792A9",
+              fontWeight: "bold",
+              fontSize: "1.5rem",
+              zIndex: 1,
+            }}
+          >
+            Southern Cameroonians Association of Ohio
+          </Typography>
           <Box
             sx={{
               height: "100%", //Full height of the snap section
