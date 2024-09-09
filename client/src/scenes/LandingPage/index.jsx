@@ -8,6 +8,7 @@ import {
   Container,
   Paper,
   Stack,
+  Typography,
   useTheme,
 } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
@@ -145,6 +146,37 @@ const Index = () => {
           scrollSnapType: "y mandatory",
         }}
       >
+        <Paper
+          sx={{
+            height: "100vh",
+            scrollSnapAlign: "start",
+            backgroundImage: `url("/assets/photos/cameroon.png")`,
+            backgroundSize: "cover", // Fill the entire section
+            backgroundPosition: "center", // Center the image
+            backgroundRepeat: "no-repeat", // Do not repeat the image
+          }}
+        >
+          <Typography>Southern Cameroonians Association of Ohio</Typography>
+          <Box
+            sx={{
+              height: "100%", //Full height of the snap section
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              sx={{
+                padding: "10px",
+                color: "#fff",
+                borderColor: "#fff",
+              }}
+              onAbort={() => navigate(-1)}
+            >
+              Back
+            </Button>
+          </Box>
+        </Paper>
         <Paper
           sx={{
             height: "100vh",
