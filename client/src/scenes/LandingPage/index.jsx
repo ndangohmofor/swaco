@@ -196,7 +196,8 @@ const Index = () => {
               Learn More
             </Button>
           </Box>
-          <Box
+          <Stack
+            spacing={3}
             sx={{
               position: "relative",
               top: "40%",
@@ -249,7 +250,7 @@ const Index = () => {
             >
               Projects
             </Button>
-          </Box>
+          </Stack>
         </Paper>
         <Paper
           sx={{
