@@ -268,7 +268,7 @@ const Index = () => {
                 position: "relative",
                 margin: "auto",
               }}
-              onClick={() => navigate("/calendar")}
+              onClick={() => navigate("/joinus")}
               variant="contained"
               style={{
                 borderRadius: 50,
