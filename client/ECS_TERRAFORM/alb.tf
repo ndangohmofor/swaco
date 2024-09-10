@@ -76,3 +76,24 @@ resource "aws_lb_listener" "web-listener-https" {
     target_group_arn = aws_lb_target_group.alb-lb-target-group.arn
   } 
 }
+
+resource "aws_lb_listener_rule" "redirect_non_www_traffic_to_www" {
+  listener_arn = aws_lb_listener.web-listener-https.arn
+  priority = 1
+
+  condition {
+    host_header {
+      values = ["${var.domain_name}"]
+    }
+  }
+
+  action {
+    type = "redirect"
+    redirect {
+      host = "www.${var.domain_name}"
+      port = "443"
+      protocol = "HTTPS"
+      status_code = "HTTP_301"
+    }
+  }
+}
