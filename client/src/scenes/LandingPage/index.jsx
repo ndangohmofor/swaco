@@ -196,6 +196,58 @@ const Index = () => {
               Learn More
             </Button>
           </Box>
+          <Box
+            sx={{
+              position: "relative",
+              top: "40%",
+              width: "100%",
+              height: "10%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              sx={{
+                color: "#000000",
+                position: "relative",
+              }}
+              onClick={() => navigate("/learnmore")}
+              variant="contained"
+              margin="auto"
+              style={{
+                borderRadius: 50,
+              }}
+            >
+              Calendar
+            </Button>
+            <Button
+              sx={{
+                color: "#000000",
+                position: "relative",
+              }}
+              onClick={() => navigate("/learnmore")}
+              variant="contained"
+              style={{
+                borderRadius: 50,
+              }}
+            >
+              Events
+            </Button>
+            <Button
+              sx={{
+                color: "#000000",
+                position: "relative",
+              }}
+              onClick={() => navigate("/learnmore")}
+              variant="contained"
+              style={{
+                borderRadius: 50,
+              }}
+            >
+              Projects
+            </Button>
+          </Box>
         </Paper>
         <Paper
           sx={{
