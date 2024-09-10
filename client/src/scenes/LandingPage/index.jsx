@@ -211,10 +211,10 @@ const Index = () => {
               sx={{
                 color: "#000000",
                 position: "relative",
+                margin: "auto",
               }}
-              onClick={() => navigate("/learnmore")}
+              onClick={() => navigate("/calendar")}
               variant="contained"
-              margin="auto"
               style={{
                 borderRadius: 50,
               }}
@@ -225,8 +225,9 @@ const Index = () => {
               sx={{
                 color: "#000000",
                 position: "relative",
+                margin: "auto",
               }}
-              onClick={() => navigate("/learnmore")}
+              onClick={() => navigate("/events")}
               variant="contained"
               style={{
                 borderRadius: 50,
@@ -238,8 +239,9 @@ const Index = () => {
               sx={{
                 color: "#000000",
                 position: "relative",
+                margin: "auto",
               }}
-              onClick={() => navigate("/learnmore")}
+              onClick={() => navigate("/projects")}
               variant="contained"
               style={{
                 borderRadius: 50,
