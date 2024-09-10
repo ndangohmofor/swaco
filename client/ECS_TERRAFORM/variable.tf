@@ -9,3 +9,9 @@ variable "cluster_name" {
   description = "the name for the ECS cluster"
   default = "swaco-cluster"
 }
+
+variable "domain_name" {
+  type = string
+  description = "the domain name for the ECS cluster"
+  default = "swaco.us"
+}
