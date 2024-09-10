@@ -150,7 +150,7 @@ const Index = () => {
           sx={{
             height: "100vh",
             scrollSnapAlign: "start",
-            backgroundImage: `url("/assets/photos/cameroon.png")`,
+            backgroundImage: `url("/assets/photos/Cameroon.png")`,
             backgroundSize: "cover", // Fill the entire section
             backgroundPosition: "center", // Center the image
             backgroundRepeat: "no-repeat", // Do not repeat the image
