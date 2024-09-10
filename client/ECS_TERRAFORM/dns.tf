@@ -17,13 +17,10 @@ resource "aws_route53_record" "swaco-us-root" {
   }
 }
 
-resource "aws_route53_record" "www-swaco-us" {
+resource "aws_route53_record" "www-swaco-us-cname" {
   zone_id = aws_route53_zone.swaco-us.zone_id
   name    = "www.swaco.us"
-  type    = "A"
-  alias {
-    name                   = aws_alb.prod-alb.dns_name
-    zone_id                = aws_alb.prod-alb.zone_id
-    evaluate_target_health = true
-  }
+  type    = "CNAME"
+  ttl     = "300"
+  records = [aws_alb.prod-alb.dns_name]
 }
