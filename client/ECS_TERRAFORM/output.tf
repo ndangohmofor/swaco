@@ -13,3 +13,7 @@ output "public_subnets" {
 output "igw-id" {
   value = module.vpc.igw_id
 }
+
+output "swaco-name-servers" {
+  value = aws_route53_zone.swaco-us.name_servers
+}
