@@ -200,7 +200,7 @@ const Index = () => {
             spacing={3}
             sx={{
               position: "relative",
-              top: "40%",
+              top: "30%",
               width: "100%",
               height: "10%",
               display: "flex",
@@ -251,6 +251,32 @@ const Index = () => {
               Projects
             </Button>
           </Stack>
+          <Box
+            sx={{
+              position: "relative",
+              top: "50%",
+              width: "100%",
+              height: "10%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              sx={{
+                color: "#000000",
+                position: "relative",
+                margin: "auto",
+              }}
+              onClick={() => navigate("/calendar")}
+              variant="contained"
+              style={{
+                borderRadius: 50,
+              }}
+            >
+              Join Us
+            </Button>
+          </Box>
         </Paper>
         <Paper
           sx={{
