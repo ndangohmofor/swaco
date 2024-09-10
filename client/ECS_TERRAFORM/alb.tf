@@ -60,6 +60,7 @@ resource "aws_lb_listener" "web-listener-http" {
       status_code = "HTTP_301"
       protocol = "HTTPS"
       port = "443"
+      host = "www.${var.domain_name}"
     }
   }
 }
