@@ -157,6 +157,7 @@ const Index = () => {
           }}
         >
           <Typography
+            variant="h1"
             sx={{
               position: "relative",
               top: "10%",
@@ -172,7 +173,10 @@ const Index = () => {
           </Typography>
           <Box
             sx={{
-              height: "100%", //Full height of the snap section
+              position: "relative",
+              top: "10%",
+              width: "100%",
+              height: "10%",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -180,13 +184,16 @@ const Index = () => {
           >
             <Button
               sx={{
-                padding: "10px",
-                color: "#fff",
-                borderColor: "#fff",
+                color: "#000000",
+                position: "relative",
               }}
-              onAbort={() => navigate(-1)}
+              onClick={() => navigate("/learnmore")}
+              variant="contained"
+              style={{
+                borderRadius: 50,
+              }}
             >
-              Back
+              Learn More
             </Button>
           </Box>
         </Paper>
