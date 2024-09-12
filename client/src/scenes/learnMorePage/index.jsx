@@ -2,6 +2,7 @@ import { useTheme } from "@emotion/react";
 import {
   Box,
   Container,
+  Divider,
   List,
   ListItem,
   Paper,
@@ -146,6 +147,63 @@ const LearnMore = () => {
                     We offer support to members during critical moments such as
                     illnesses, bereavements, and life milestones like weddings
                     and childbirth.
+                  </Typography>
+                </Typography>
+              </ListItem>
+              <Divider component={"li"} />
+              <ListItem>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                    fontSize: "1rem",
+                    margin: "auto",
+                    zIndex: 1,
+                  }}
+                >
+                  Fostering unity and solidarity:
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: "left",
+                      fontWeight: "regular",
+                      fontSize: "1rem",
+                      margin: "auto",
+                      zIndex: 1,
+                    }}
+                  >
+                    By promoting a strong sense of community, we encourage
+                    members to build meaningful relationships, stand by one
+                    another, and collaborate for the common good.
+                  </Typography>
+                </Typography>
+              </ListItem>
+              <Divider component={"li"} />
+              <ListItem>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                    fontSize: "1rem",
+                    margin: "auto",
+                    zIndex: 1,
+                  }}
+                >
+                  Promoting and developing community projects:
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: "left",
+                      fontWeight: "regular",
+                      fontSize: "1rem",
+                      margin: "auto",
+                      zIndex: 1,
+                    }}
+                  >
+                    We contribute to initiatives that uplift our community and
+                    create opportunities for collective progress.
                   </Typography>
                 </Typography>
               </ListItem>
