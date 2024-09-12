@@ -80,7 +80,7 @@ const LearnMore = () => {
             <CardMedia
               sx={{
                 height: "70vh",
-                width: "75%",
+                width: "90%",
                 margin: "auto",
                 position: "relative",
               }}
