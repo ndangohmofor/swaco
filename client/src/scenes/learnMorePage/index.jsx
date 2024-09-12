@@ -1,5 +1,13 @@
 import { useTheme } from "@emotion/react";
-import { Box, Container, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  List,
+  ListItem,
+  Paper,
+  styled,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar";
@@ -103,6 +111,46 @@ const LearnMore = () => {
           >
             SWACO is dedicated to:
           </Typography>
+          <Box
+            sx={{
+              position: "relative",
+              top: "5%",
+              width: "80%",
+              margin: "auto",
+              zIndex: 1,
+            }}
+          >
+            <List sx={styled} aria-label="mission statements">
+              <ListItem>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                    fontSize: "1rem",
+                    margin: "auto",
+                    zIndex: 1,
+                  }}
+                >
+                  Assisting members in times of need:
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: "left",
+                      fontWeight: "regular",
+                      fontSize: "1rem",
+                      margin: "auto",
+                      zIndex: 1,
+                    }}
+                  >
+                    We offer support to members during critical moments such as
+                    illnesses, bereavements, and life milestones like weddings
+                    and childbirth.
+                  </Typography>
+                </Typography>
+              </ListItem>
+            </List>
+          </Box>
         </Paper>
       </Container>
     </>
