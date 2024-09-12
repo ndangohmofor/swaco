@@ -1,6 +1,8 @@
 import { useTheme } from "@emotion/react";
 import {
   Box,
+  Card,
+  CardMedia,
   Container,
   Divider,
   List,
@@ -74,6 +76,19 @@ const LearnMore = () => {
             heritage, and work on projects that benefit both members and the
             broader society.
           </Typography>
+          <Card sx={{ position: "relative", top: "7%", zIndex: 1 }}>
+            <CardMedia
+              sx={{
+                height: "60vh",
+                width: "75%",
+                margin: "auto",
+                position: "relative",
+              }}
+              component="img"
+              image="/assets/photos/Learnmore.png"
+              alt="members of SWACO"
+            />
+          </Card>
         </Paper>
         <Paper
           sx={{
