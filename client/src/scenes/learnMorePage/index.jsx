@@ -121,6 +121,7 @@ const LearnMore = () => {
               zIndex: 1,
             }}
           >
+            <Divider component={"li"} />
             <List sx={styled} aria-label="mission statements">
               <ListItem>
                 <Typography
