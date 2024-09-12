@@ -9,6 +9,7 @@ import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
 import Index from "./scenes/LandingPage";
 import Constitution from "./scenes/constitution";
+import LearnMore from "./scenes/learnMorePage";
 
 function App() {
   const mode = useSelector((state) => state.mode);
@@ -32,6 +33,7 @@ function App() {
               path="/profile/:userId"
               element={isAuth ? <ProfilePage /> : <Navigate to="/login" />}
             />
+            <Route path="/learnmore" element={<LearnMore />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
