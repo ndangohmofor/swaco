@@ -23,7 +23,7 @@ const LearnMore = () => {
       >
         <Paper
           sx={{
-            height: "100vh",
+            height: "30vh",
             scrollSnapAlign: "start",
             position: "relative",
             elevation: 1,
@@ -58,8 +58,50 @@ const LearnMore = () => {
               display: "block",
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            The Southern Cameroonians Association of Ohio (SWACO) is a
+            non-profit organization that brings together Southern Cameroonians
+            living in Ohio. Our goal is to create a strong and unified community
+            where members can support one another, celebrate their shared
+            heritage, and work on projects that benefit both members and the
+            broader society.
+          </Typography>
+        </Paper>
+        <Paper
+          sx={{
+            height: "50vh",
+            scrollSnapAlign: "start",
+            position: "relative",
+            elevation: 1,
+          }}
+        >
+          <Typography
+            variant="h2"
+            sx={{
+              position: "relative",
+              top: "5%",
+              textAlign: "center",
+              width: "100%",
+              color: "#2792A9",
+              fontWeight: "bold",
+              fontSize: "1.5rem",
+              zIndex: 1,
+            }}
+          >
+            Our Mission
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              position: "relative",
+              top: "7%",
+              width: "80%",
+              textAlign: "left",
+              fontSize: "1rem",
+              margin: "auto",
+              zIndex: 1,
+            }}
+          >
+            SWACO is dedicated to:
           </Typography>
         </Paper>
       </Container>
