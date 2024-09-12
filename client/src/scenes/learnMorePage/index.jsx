@@ -32,7 +32,7 @@ const LearnMore = () => {
       >
         <Paper
           sx={{
-            height: "30vh",
+            height: "100vh",
             scrollSnapAlign: "start",
             position: "relative",
             elevation: 1,
@@ -77,7 +77,7 @@ const LearnMore = () => {
         </Paper>
         <Paper
           sx={{
-            height: "50vh",
+            height: "100vh",
             scrollSnapAlign: "start",
             position: "relative",
             elevation: 1,
