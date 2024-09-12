@@ -76,10 +76,10 @@ const LearnMore = () => {
             heritage, and work on projects that benefit both members and the
             broader society.
           </Typography>
-          <Card sx={{ position: "relative", top: "7%", zIndex: 1 }}>
+          <Card sx={{ position: "relative", top: "2%", zIndex: 1 }}>
             <CardMedia
               sx={{
-                height: "60vh",
+                height: "70vh",
                 width: "75%",
                 margin: "auto",
                 position: "relative",
