@@ -1,6 +1,7 @@
 import { useTheme } from "@emotion/react";
 import {
   Box,
+  Button,
   Card,
   CardMedia,
   Container,
@@ -44,7 +45,6 @@ const LearnMore = () => {
             variant="h1"
             sx={{
               position: "relative",
-              top: "5%",
               textAlign: "center",
               width: "100%",
               color: "#2792A9",
@@ -59,7 +59,7 @@ const LearnMore = () => {
             variant="body1"
             sx={{
               position: "relative",
-              top: "7%",
+              top: "2%",
               width: "80%",
               textAlign: "center",
               margin: "auto",
@@ -102,7 +102,7 @@ const LearnMore = () => {
             variant="h2"
             sx={{
               position: "relative",
-              top: "5%",
+              top: "3%",
               textAlign: "center",
               width: "100%",
               color: "#2792A9",
