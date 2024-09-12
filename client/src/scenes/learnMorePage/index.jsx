@@ -4,7 +4,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar";
 
-const Index = () => {
+const LearnMore = () => {
   const navigate = useNavigate();
   const theme = useTheme();
   return (
@@ -49,4 +49,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default LearnMore;
