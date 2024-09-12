@@ -26,13 +26,14 @@ const LearnMore = () => {
             height: "100vh",
             scrollSnapAlign: "start",
             position: "relative",
+            elevation: 1,
           }}
         >
           <Typography
             variant="h1"
             sx={{
               position: "relative",
-              top: "10%",
+              top: "5%",
               textAlign: "center",
               width: "100%",
               color: "#2792A9",
@@ -42,6 +43,23 @@ const LearnMore = () => {
             }}
           >
             Who We Are
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              position: "relative",
+              top: "7%",
+              width: "80%",
+              textAlign: "center",
+              margin: "auto",
+              fontWeight: "regular",
+              fontSize: "1rem",
+              zIndex: 1,
+              display: "block",
+            }}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </Typography>
         </Paper>
       </Container>
