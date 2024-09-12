@@ -318,7 +318,6 @@ const Index = () => {
                   <Button
                     key={index}
                     variant="outlined"
-                    onClick={() => navigate(item.cardActionLink)}
                     sx={{
                       m: "2rem 0",
                       p: "1rem",
