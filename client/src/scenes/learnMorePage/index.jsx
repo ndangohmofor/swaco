@@ -52,7 +52,7 @@ const LearnMore = () => {
               zIndex: 1,
             }}
           >
-            <Divider>Who We Are</Divider>
+            Who We Are
           </Typography>
           <Typography
             variant="body1"
@@ -101,7 +101,7 @@ const LearnMore = () => {
             variant="h2"
             sx={{
               position: "relative",
-              top: "3%",
+              top: "1%",
               textAlign: "center",
               width: "100%",
               color: "#2792A9",
@@ -110,13 +110,13 @@ const LearnMore = () => {
               zIndex: 1,
             }}
           >
-            Our Mission
+            <Divider>Our Mission</Divider>
           </Typography>
           <Typography
             variant="subtitle1"
             sx={{
               position: "relative",
-              top: "7%",
+              top: "5%",
               width: "80%",
               textAlign: "left",
               fontSize: "1rem",
