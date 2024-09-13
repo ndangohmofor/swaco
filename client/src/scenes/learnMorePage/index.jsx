@@ -52,7 +52,7 @@ const LearnMore = () => {
               zIndex: 1,
             }}
           >
-            Who We Are
+            <Divider>Who We Are</Divider>
           </Typography>
           <Typography
             variant="body1"
@@ -219,6 +219,166 @@ const LearnMore = () => {
                   >
                     We contribute to initiatives that uplift our community and
                     create opportunities for collective progress.
+                  </Typography>
+                </Typography>
+              </ListItem>
+            </List>
+          </Box>
+        </Paper>
+
+        <Paper
+          sx={{
+            height: "100vh",
+            scrollSnapAlign: "start",
+            position: "relative",
+            elevation: 1,
+          }}
+        >
+          <Typography
+            variant="h2"
+            sx={{
+              position: "relative",
+              top: "3%",
+              textAlign: "center",
+              width: "100%",
+              color: "#2792A9",
+              fontWeight: "bold",
+              fontSize: "1.5rem",
+              zIndex: 1,
+            }}
+          >
+            <Divider> Key Objectives</Divider>
+          </Typography>
+
+          <Box
+            sx={{
+              position: "relative",
+              top: "2%",
+              width: "80%",
+              margin: "auto",
+              zIndex: 1,
+            }}
+          >
+            <List sx={styled} aria-label="mission statements">
+              <ListItem>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                    fontSize: "1rem",
+                    margin: "auto",
+                    zIndex: 1,
+                  }}
+                >
+                  1. Monthly Meetings:
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: "left",
+                      fontWeight: "regular",
+                      fontSize: "1rem",
+                      margin: "auto",
+                      zIndex: 1,
+                    }}
+                  >
+                    SWACO holds monthly meetings at members’ homes. These
+                    gatherings are more than administrative—they are social
+                    events where bonds are strengthened, and decisions are made
+                    about the future of our association. Meetings occur on the
+                    last Sunday of each month from 5 PM to 8 PM.
+                  </Typography>
+                </Typography>
+              </ListItem>
+              <Divider component={"li"} />
+              <ListItem>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                    fontSize: "1rem",
+                    margin: "auto",
+                    zIndex: 1,
+                  }}
+                >
+                  2. Support and Benefits:
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: "left",
+                      fontWeight: "regular",
+                      fontSize: "1rem",
+                      margin: "auto",
+                      zIndex: 1,
+                    }}
+                  >
+                    Members enjoy various forms of support, from financial
+                    assistance during life events to social engagement. Whether
+                    it's welcoming a newborn with a “born house” celebration or
+                    attending a member’s wedding, SWACO is committed to
+                    celebrating and supporting each other.
+                  </Typography>
+                </Typography>
+              </ListItem>
+              <Divider component={"li"} />
+              <ListItem>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                    fontSize: "1rem",
+                    margin: "auto",
+                    zIndex: 1,
+                  }}
+                >
+                  3. Membership:
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: "left",
+                      fontWeight: "regular",
+                      fontSize: "1rem",
+                      margin: "auto",
+                      zIndex: 1,
+                    }}
+                  >
+                    SWACO membership is open to all Southern Cameroonians aged
+                    18 and older living in Ohio, as well as their spouses and
+                    children. Our members are required to uphold our
+                    constitution and pay dues that help sustain our activities.
+                  </Typography>
+                </Typography>
+              </ListItem>
+              <Divider component={"li"} />
+              <ListItem>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                    fontSize: "1rem",
+                    margin: "auto",
+                    zIndex: 1,
+                  }}
+                >
+                  4. Executive Committee:
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: "left",
+                      fontWeight: "regular",
+                      fontSize: "1rem",
+                      margin: "auto",
+                      zIndex: 1,
+                    }}
+                  >
+                    SWACO is led by a dedicated executive team, including the
+                    President, Vice President, Secretary, Financial Secretary,
+                    Treasurer, and more. The executive ensures the smooth
+                    running of the association and upholds the values of unity,
+                    transparency, and accountability.
                   </Typography>
                 </Typography>
               </ListItem>
