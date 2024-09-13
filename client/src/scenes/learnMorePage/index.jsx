@@ -238,7 +238,7 @@ const LearnMore = () => {
             variant="h2"
             sx={{
               position: "relative",
-              top: "3%",
+              top: "1%",
               textAlign: "center",
               width: "100%",
               color: "#2792A9",
@@ -253,7 +253,7 @@ const LearnMore = () => {
           <Box
             sx={{
               position: "relative",
-              top: "2%",
+              top: "1%",
               width: "80%",
               margin: "auto",
               zIndex: 1,
