@@ -2,8 +2,6 @@ import { useTheme } from "@emotion/react";
 import {
   Box,
   Card,
-  CardContent,
-  CardHeader,
   CardMedia,
   Container,
   Divider,
