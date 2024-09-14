@@ -18,6 +18,14 @@ import Navbar from "../navbar";
 const LearnMore = () => {
   const navigate = useNavigate();
   const theme = useTheme();
+
+  const paperStyle = {
+    height: "100vh",
+    scrollSnapAlign: "start",
+    position: "relative",
+    elevation: 1,
+  };
+
   return (
     <>
       <Box>
@@ -32,14 +40,7 @@ const LearnMore = () => {
           scrollSnapType: "y mandatory",
         }}
       >
-        <Paper
-          sx={{
-            height: "100vh",
-            scrollSnapAlign: "start",
-            position: "relative",
-            elevation: 1,
-          }}
-        >
+        <Paper sx={paperStyle}>
           <Typography
             variant="h1"
             sx={{
@@ -89,14 +90,7 @@ const LearnMore = () => {
             />
           </Card>
         </Paper>
-        <Paper
-          sx={{
-            height: "100vh",
-            scrollSnapAlign: "start",
-            position: "relative",
-            elevation: 1,
-          }}
-        >
+        <Paper sx={paperStyle}>
           <Typography
             variant="h2"
             sx={{
@@ -226,14 +220,7 @@ const LearnMore = () => {
           </Box>
         </Paper>
 
-        <Paper
-          sx={{
-            height: "100vh",
-            scrollSnapAlign: "start",
-            position: "relative",
-            elevation: 1,
-          }}
-        >
+        <Paper sx={paperStyle}>
           <Typography
             variant="h2"
             sx={{
