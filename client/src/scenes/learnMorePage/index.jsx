@@ -110,7 +110,7 @@ const LearnMore = () => {
               zIndex: 1,
             }}
           >
-            <Divider>Our Mission</Divider>
+            Our Mission
           </Typography>
           <Typography
             variant="subtitle1"
