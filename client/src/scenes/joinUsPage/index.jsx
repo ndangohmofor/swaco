@@ -36,7 +36,7 @@ const JoinUs = () => {
             variant="h1"
             sx={{
               position: "relative",
-              top: "8%",
+              top: "3%",
               textAlign: "center",
               width: "100%",
               color: "#2792A9",
@@ -48,12 +48,12 @@ const JoinUs = () => {
           >
             How to Join SWACO
           </Typography>
-          <Divider />
+
           <Typography
             variant="body1"
             sx={{
               position: "relative",
-              top: "10%",
+              top: "5%",
               width: "80%",
               textAlign: "center",
               margin: "auto",
