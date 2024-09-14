@@ -44,6 +44,7 @@ const JoinUs = () => {
               fontSize: "1.5rem",
               zIndex: 1,
               display: "block",
+              textDecoration: "underline",
             }}
           >
             How to Join SWACO
@@ -73,7 +74,7 @@ const JoinUs = () => {
           <Box
             sx={{
               position: "relative",
-              top: "10%",
+              top: "8%",
               width: "100%",
               height: "10%",
               display: "flex",
