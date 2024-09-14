@@ -10,6 +10,7 @@ import { themeSettings } from "./theme";
 import Index from "./scenes/LandingPage";
 import Constitution from "./scenes/constitution";
 import LearnMore from "./scenes/learnMorePage";
+import JoinUs from "./scenes/joinUsPage";
 
 function App() {
   const mode = useSelector((state) => state.mode);
@@ -34,6 +35,7 @@ function App() {
               element={isAuth ? <ProfilePage /> : <Navigate to="/login" />}
             />
             <Route path="/learnmore" element={<LearnMore />} />
+            <Route path="/joinus" element={<JoinUs />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
