@@ -1,4 +1,11 @@
-import { Box, Button, Container, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Divider,
+  Paper,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import Navbar from "../navbar";
 import { useNavigate } from "react-router-dom";
@@ -29,16 +36,39 @@ const JoinUs = () => {
             variant="h1"
             sx={{
               position: "relative",
-              top: "10%",
+              top: "8%",
               textAlign: "center",
               width: "100%",
               color: "#2792A9",
               fontWeight: "bold",
               fontSize: "1.5rem",
               zIndex: 1,
+              display: "block",
             }}
           >
             How to Join SWACO
+          </Typography>
+          <Divider />
+          <Typography
+            variant="body1"
+            sx={{
+              position: "relative",
+              top: "10%",
+              width: "80%",
+              textAlign: "center",
+              margin: "auto",
+              fontWeight: "regular",
+              fontSize: "1rem",
+              zIndex: 1,
+              display: "block",
+            }}
+          >
+            The Southern Cameroonians Association of Ohio (SWACO) is a
+            non-profit organization that brings together Southern Cameroonians
+            living in Ohio. Our goal is to create a strong and unified community
+            where members can support one another, celebrate their shared
+            heritage, and work on projects that benefit both members and the
+            broader society.
           </Typography>
           <Box
             sx={{
