@@ -2,6 +2,8 @@ import { useTheme } from "@emotion/react";
 import {
   Box,
   Card,
+  CardContent,
+  CardHeader,
   CardMedia,
   Container,
   Divider,
@@ -370,6 +372,23 @@ const LearnMore = () => {
               </ListItem>
             </List>
           </Box>
+        </Paper>
+        <Paper sx={paperStyle}>
+          <Typography
+            variant="h2"
+            sx={{
+              position: "relative",
+              top: "5%",
+              textAlign: "center",
+              width: "100%",
+              color: "#2792A9",
+              fontWeight: "bold",
+              fontSize: "1.2rem",
+              zIndex: 1,
+            }}
+          >
+            Financial Contributions & Benefits
+          </Typography>
         </Paper>
       </Container>
     </>
