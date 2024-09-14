@@ -378,7 +378,7 @@ const LearnMore = () => {
             variant="h2"
             sx={{
               position: "relative",
-              top: "5%",
+              top: "3%",
               textAlign: "center",
               width: "100%",
               color: "#2792A9",
@@ -389,6 +389,95 @@ const LearnMore = () => {
           >
             Financial Contributions & Benefits
           </Typography>
+          <Box
+            sx={{
+              position: "relative",
+              top: "5%",
+            }}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                textAlign: "left",
+                fontWeight: "regular",
+                fontSize: "1rem",
+                width: "90%",
+                margin: "auto",
+                zIndex: 1,
+              }}
+            >
+              Members contribute to the association through a registration fee,
+              annual dues, and special levies that help fund the activities of
+              the organization. These contributions also ensure that members
+              receive financial support during critical life events. For
+              example:
+            </Typography>
+            <List
+              sx={{
+                position: "relative",
+                top: "5%",
+                width: "90%",
+                margin: "auto",
+                zIndex: 1,
+              }}
+            >
+              <ListItem>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                    fontSize: "1rem",
+                    margin: "auto",
+                    zIndex: 1,
+                  }}
+                >
+                  Funeral Support:
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: "left",
+                      fontWeight: "regular",
+                      fontSize: "1rem",
+                      margin: "auto",
+                      zIndex: 1,
+                    }}
+                  >
+                    In the unfortunate event of a member’s death, the
+                    association rallies around the family, both with emotional
+                    and financial support.
+                  </Typography>
+                </Typography>
+              </ListItem>
+              <ListItem>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "bold",
+                    fontSize: "1rem",
+                    margin: "auto",
+                    zIndex: 1,
+                  }}
+                >
+                  Celebrations:
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: "left",
+                      fontWeight: "regular",
+                      fontSize: "1rem",
+                      margin: "auto",
+                      zIndex: 1,
+                    }}
+                  >
+                    Members also receive financial gifts during weddings,
+                    childbirth celebrations, and other significant life events.
+                  </Typography>
+                </Typography>
+              </ListItem>
+            </List>
+          </Box>
         </Paper>
       </Container>
     </>
