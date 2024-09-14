@@ -478,6 +478,44 @@ const LearnMore = () => {
               </ListItem>
             </List>
           </Box>
+          <Box
+            sx={{
+              position: "relative",
+              top: "8%",
+            }}
+          >
+            <Typography
+              variant="h3"
+              sx={{
+                position: "relative",
+                top: "8%",
+                textAlign: "center",
+                width: "90%",
+                color: "#2792A9",
+                fontWeight: "bold",
+                fontSize: "1rem",
+                zIndex: 1,
+              }}
+            >
+              Values We Stand By
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                textAlign: "left",
+                width: "80%",
+                fontWeight: "regular",
+                fontSize: "1rem",
+                margin: "5% auto",
+                zIndex: 1,
+              }}
+            >
+              SWACO is guided by the core principles of unity, solidarity, and
+              community engagement. We believe that by standing together, we can
+              achieve more and create a supportive network that enriches the
+              lives of all our members.
+            </Typography>
+          </Box>
         </Paper>
       </Container>
     </>
