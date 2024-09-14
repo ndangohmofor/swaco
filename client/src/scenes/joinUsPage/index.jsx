@@ -58,17 +58,17 @@ const JoinUs = () => {
               textAlign: "center",
               margin: "auto",
               fontWeight: "regular",
-              fontSize: "1rem",
+              fontSize: "1.2rem",
               zIndex: 1,
               display: "block",
             }}
           >
-            The Southern Cameroonians Association of Ohio (SWACO) is a
-            non-profit organization that brings together Southern Cameroonians
-            living in Ohio. Our goal is to create a strong and unified community
-            where members can support one another, celebrate their shared
-            heritage, and work on projects that benefit both members and the
-            broader society.
+            SWACO membership is open to Southern Cameroonians aged 18 and above
+            residing in Ohio. However, membership is capped at 40 members. Once
+            this cap is reached, we can only accept 10 additional members, and
+            these must be direct relatives of existing members. After paying the
+            registration fee, new members undergo a probation period before
+            gaining full membership benefits.
           </Typography>
           <Box
             sx={{
