@@ -282,7 +282,7 @@ const LearnMore = () => {
                       zIndex: 1,
                     }}
                   >
-                    SWACO holds monthly meetings at members’ homes. These
+                    SWACO holds monthly meetings at member's homes. These
                     gatherings are more than administrative—they are social
                     events where bonds are strengthened, and decisions are made
                     about the future of our association. Meetings occur on the
@@ -315,8 +315,8 @@ const LearnMore = () => {
                   >
                     Members enjoy various forms of support, from financial
                     assistance during life events to social engagement. Whether
-                    it's welcoming a newborn with a “born house” celebration or
-                    attending a member’s wedding, SWACO is committed to
+                    it's welcoming a newborn with a "born house" celebration or
+                    attending a member's wedding, SWACO is committed to
                     celebrating and supporting each other.
                   </Typography>
                 </Typography>
@@ -344,10 +344,10 @@ const LearnMore = () => {
                       zIndex: 1,
                     }}
                   >
-                    SWACO membership is open to all Southern Cameroonians aged
-                    18 and older living in Ohio, as well as their spouses and
-                    children. Our members are required to uphold our
-                    constitution and pay dues that help sustain our activities.
+                    Membership is open to all Southern Cameroonians aged 18 and
+                    above in Ohio, and their spouses and children. Members are
+                    required to uphold our constitution and pay dues to sustain
+                    our activities.
                   </Typography>
                 </Typography>
               </ListItem>
@@ -374,11 +374,10 @@ const LearnMore = () => {
                       zIndex: 1,
                     }}
                   >
-                    SWACO is led by a dedicated executive team, including the
-                    President, Vice President, Secretary, Financial Secretary,
-                    Treasurer, and more. The executive ensures the smooth
-                    running of the association and upholds the values of unity,
-                    transparency, and accountability.
+                    An executive team of a President, Vice President, Secretary,
+                    etc. ensures the smooth running of the association and
+                    upholds the values of unity, transparency, and
+                    accountability.
                   </Typography>
                 </Typography>
               </ListItem>
