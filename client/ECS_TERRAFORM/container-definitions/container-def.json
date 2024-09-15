@@ -1,7 +1,7 @@
 [
   {
     "name": "swaco-client",
-    "image": "727646489632.dkr.ecr.us-east-1.amazonaws.com/swaco/client:2024091401",
+    "image": "727646489632.dkr.ecr.us-east-1.amazonaws.com/swaco/client:2024091501",
     "cpu": 10,
     "memory": 256,
     "essential": true,
