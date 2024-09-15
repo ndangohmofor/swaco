@@ -46,6 +46,7 @@ const LearnMore = () => {
             sx={{
               position: "relative",
               textAlign: "center",
+              top: "0%",
               width: "100%",
               color: "#2792A9",
               fontWeight: "bold",
@@ -59,8 +60,8 @@ const LearnMore = () => {
             variant="body1"
             sx={{
               position: "relative",
-              top: "2%",
-              width: "80%",
+              top: "0.5%",
+              width: "90%",
               textAlign: "center",
               margin: "auto",
               fontWeight: "regular",
@@ -79,7 +80,7 @@ const LearnMore = () => {
           <Card sx={{ position: "relative", top: "2%", zIndex: 1 }}>
             <CardMedia
               sx={{
-                height: "70vh",
+                height: "65vh",
                 width: "90%",
                 margin: "auto",
                 position: "relative",
