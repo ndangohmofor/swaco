@@ -327,7 +327,7 @@ const LearnMore = () => {
               zIndex: 1,
             }}
           >
-            <Divider> Key Objectives Cont'd</Divider>
+            Key Objectives Cont'd
           </Typography>
 
           <Box
@@ -404,7 +404,7 @@ const LearnMore = () => {
             variant="h2"
             sx={{
               position: "relative",
-              top: "3%",
+              top: "1%",
               textAlign: "center",
               width: "100%",
               color: "#2792A9",
@@ -418,7 +418,7 @@ const LearnMore = () => {
           <Box
             sx={{
               position: "relative",
-              top: "5%",
+              top: "3%",
             }}
           >
             <Typography
@@ -447,15 +447,16 @@ const LearnMore = () => {
                 zIndex: 1,
               }}
             >
-              <ListItem>
+              <ListItem sx={{ py: 0 }}>
                 <Typography
                   variant="subtitle1"
                   sx={{
+                    position: "relative",
+                    top: "2%",
                     textAlign: "left",
                     fontWeight: "bold",
                     fontSize: "1rem",
                     margin: "auto",
-                    zIndex: 1,
                   }}
                 >
                   Funeral Support:
@@ -475,7 +476,7 @@ const LearnMore = () => {
                   </Typography>
                 </Typography>
               </ListItem>
-              <ListItem>
+              <ListItem sx={{ py: 0 }}>
                 <Typography
                   variant="subtitle1"
                   sx={{
@@ -507,20 +508,18 @@ const LearnMore = () => {
           <Box
             sx={{
               position: "relative",
-              top: "8%",
+              top: "5%",
             }}
           >
             <Typography
               variant="h3"
               sx={{
-                position: "relative",
-                top: "8%",
                 textAlign: "center",
                 width: "90%",
                 color: "#2792A9",
                 fontWeight: "bold",
                 fontSize: "1rem",
-                zIndex: 1,
+                textDecoration: "underline",
               }}
             >
               Values We Stand By
@@ -529,11 +528,10 @@ const LearnMore = () => {
               variant="body1"
               sx={{
                 textAlign: "left",
-                width: "80%",
+                width: "90%",
                 fontWeight: "regular",
                 fontSize: "1rem",
                 margin: "5% auto",
-                zIndex: 1,
               }}
             >
               SWACO is guided by the core principles of unity, solidarity, and
