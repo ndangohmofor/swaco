@@ -226,7 +226,7 @@ const LearnMore = () => {
             variant="h2"
             sx={{
               position: "relative",
-              top: "1%",
+              top: "0%",
               textAlign: "center",
               width: "100%",
               color: "#2792A9",
@@ -241,7 +241,7 @@ const LearnMore = () => {
           <Box
             sx={{
               position: "relative",
-              top: "1%",
+              top: "0%",
               width: "80%",
               margin: "auto",
               zIndex: 1,
@@ -265,7 +265,7 @@ const LearnMore = () => {
                     sx={{
                       textAlign: "left",
                       fontWeight: "regular",
-                      fontSize: "1rem",
+                      fontSize: "0.95rem",
                       margin: "auto",
                       zIndex: 1,
                     }}
@@ -310,66 +310,93 @@ const LearnMore = () => {
                 </Typography>
               </ListItem>
               <Divider component={"li"} />
-              <ListItem>
-                <Typography
-                  variant="subtitle1"
-                  sx={{
-                    textAlign: "left",
-                    fontWeight: "bold",
-                    fontSize: "1rem",
-                    margin: "auto",
-                    zIndex: 1,
-                  }}
-                >
-                  3. Membership:
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      textAlign: "left",
-                      fontWeight: "regular",
-                      fontSize: "1rem",
-                      margin: "auto",
-                      zIndex: 1,
-                    }}
-                  >
-                    Membership is open to all Southern Cameroonians aged 18 and
-                    above in Ohio, and their spouses and children. Members are
-                    required to uphold our constitution and pay dues to sustain
-                    our activities.
-                  </Typography>
-                </Typography>
-              </ListItem>
-              <Divider component={"li"} />
-              <ListItem>
-                <Typography
-                  variant="subtitle1"
-                  sx={{
-                    textAlign: "left",
-                    fontWeight: "bold",
-                    fontSize: "1rem",
-                    margin: "auto",
-                    zIndex: 1,
-                  }}
-                >
-                  4. Executive Committee:
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      textAlign: "left",
-                      fontWeight: "regular",
-                      fontSize: "1rem",
-                      margin: "auto",
-                      zIndex: 1,
-                    }}
-                  >
-                    An executive team of a President, Vice President, Secretary,
-                    etc. ensures the smooth running of the association and
-                    upholds the values of unity, transparency, and
-                    accountability.
-                  </Typography>
-                </Typography>
-              </ListItem>
             </List>
+          </Box>
+        </Paper>
+        <Paper sx={paperStyle}>
+          <Typography
+            variant="h2"
+            sx={{
+              position: "relative",
+              top: "0%",
+              textAlign: "center",
+              width: "100%",
+              color: "#2792A9",
+              fontWeight: "bold",
+              fontSize: "1.5rem",
+              zIndex: 1,
+            }}
+          >
+            <Divider> Key Objectives Cont'd</Divider>
+          </Typography>
+
+          <Box
+            sx={{
+              position: "relative",
+              top: "0%",
+              width: "80%",
+              margin: "auto",
+              zIndex: 1,
+            }}
+          >
+            <ListItem>
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  textAlign: "left",
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  margin: "auto",
+                  zIndex: 1,
+                }}
+              >
+                3. Membership:
+                <Typography
+                  variant="body1"
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "regular",
+                    fontSize: "1rem",
+                    margin: "auto",
+                    zIndex: 1,
+                  }}
+                >
+                  Membership is open to all Southern Cameroonians aged 18 and
+                  above in Ohio, and their spouses and children. Members are
+                  required to uphold our constitution and pay dues to sustain
+                  our activities.
+                </Typography>
+              </Typography>
+            </ListItem>
+            <Divider component={"li"} />
+            <ListItem>
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  textAlign: "left",
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  margin: "auto",
+                  zIndex: 1,
+                }}
+              >
+                4. Executive Committee:
+                <Typography
+                  variant="body1"
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "regular",
+                    fontSize: "1rem",
+                    margin: "auto",
+                    zIndex: 1,
+                  }}
+                >
+                  An executive team of a President, Vice President, Secretary,
+                  etc. ensures the smooth running of the association and upholds
+                  the values of unity, transparency, and accountability.
+                </Typography>
+              </Typography>
+            </ListItem>
           </Box>
         </Paper>
         <Paper sx={paperStyle}>
