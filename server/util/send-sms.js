@@ -19,7 +19,7 @@ const pinpoint = new AWS.Pinpoint({ region: aws_region });
 /**
  * Sends an OTP to a given phone number via AWS Pinpoint.
  * @param {string} phoneNumber - The phone number to send the OTP to.
- * @returns {referenceId: string, phoneNumber: string} - An object containing the referenceId.
+ * @returns {Promise<{referenceId: string, phoneNumber: string}>} - An object containing the referenceId and phoneNumber.
  */
 const sendOtp = async (phoneNumber) => {
   const referenceId = uuidv4();
