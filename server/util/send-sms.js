@@ -23,28 +23,23 @@ AWS.config.update({ region: aws_region });
 
 const pinpoint = new AWS.Pinpoint();
 
-function sendVoiceMessage(destinationNumber) {
-  const params = {
-    CallerId: callerId,
-    ConfigurationSetName: configurationSet,
-    Content: {
-      SSMLMessage: {
-        LanguageCode: languageCode,
-        Text: ssmlMessage,
-        VoiceId: voiceId,
+// Specify the parameters to pass to the API.
+const params = {
+  ApplicationId: process.env.PINPOINT_APP_ID,
+  MessageRequest: {
+    Addresses: {
+      [destinationNumber]: {
+        channelType: 'SMS',
       },
     },
-    DestinationPhoneNumber: destinationNumber,
-    OriginationPhoneNumber: origNumber,
-  };
-
-  pinpointsmsvoice.sendVoiceMessage(params, function (err, data) {
-    if (err) {
-      console.log(err.message);
-    } else {
-      console.log('Message sent! Message ID: ' + data['MessageId']);
-    }
-  });
-}
+    MessageConfiguration: {
+      SMSMessage: {
+        Body: smsMessage,
+        MessageType: messageType,
+        OriginationNumber: origNumber,
+      },
+    },
+  },
+};
 
 export default sendVoiceMessage;
