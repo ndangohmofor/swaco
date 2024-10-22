@@ -52,7 +52,7 @@ const sendOtp = async (phoneNumber) => {
  * @param {string} referenceId - The unique reference ID generated when the OTP was sent.
  * @param {string} phoneNumber - The phone number the OTP was sent to.
  * @param {string} otpCode - The OTP code received from the user.
- * @returns {success: boolean, message: string} - The verification result.
+ * @returns {Promise<{success: boolean, message: string}>} - The verification results.
  */
 const verifyOtp = async (referenceId, phoneNumber, otpCode) => {
   const params = {
