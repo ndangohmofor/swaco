@@ -42,4 +42,15 @@ const params = {
   },
 };
 
+pinpoint.sendMessages(params, function (err, data) {
+  if (err) {
+    console.log(err.message);
+  } else {
+    console.log(
+      'Message sent! ' +
+        data['MessageResponse']['Result'][destinationNumber]['StatusMessage'],
+    );
+  }
+});
+
 export default sendVoiceMessage;
