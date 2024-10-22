@@ -3,8 +3,6 @@ import AWS from 'aws-sdk';
 import { v4 as uuidv4 } from 'uuid';
 
 const aws_region = 'us-east-1';
-const origNumber = process.env.ORIGINATION_NUMBER;
-const languageCode = 'en-US';
 
 const pinpoint = new AWS.Pinpoint({ region: aws_region });
 
@@ -13,6 +11,9 @@ const registeredKeyword = process.env.REGISTERED_KEYWORD;
 const ApplicationId = process.env.PINPOINT_APP_ID;
 const brandName = process.env.BRAND_NAME;
 const validityPeriod = process.env.VALIDITY_PERIOD;
+const origNumber = process.env.ORIGINATION_NUMBER;
+const messageChannel = process.env.MESSAGE_CHANNEL;
+const languageCode = 'en-US';
 
 const credentials = new AWS.SharedIniFileCredentials({
   profile: 'default',
@@ -30,22 +31,9 @@ const sendOtp = async (phoneNumber) => {
       BrandName: brandName,
       Channel: messageChannel,
       DestinationNumber: phoneNumber,
-      OriginationIdentity: originationNumber,
+      OriginationIdentity: origNumber,
       ReferenceId: referenceId,
       ValidityPeriod: validityPeriod,
     },
   };
 };
-
-pinpoint.sendMessages(params, function (err, data) {
-  if (err) {
-    console.log(err.message);
-  } else {
-    console.log(
-      'Message sent! ' +
-        data['MessageResponse']['Result'][destinationNumber]['StatusMessage'],
-    );
-  }
-});
-
-export default sendMessages;
