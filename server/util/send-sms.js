@@ -2,21 +2,19 @@
 import AWS from 'aws-sdk';
 import { v4 as uuidv4 } from 'uuid';
 
-const aws_region = 'us-east-1';
-
-const pinpoint = new AWS.Pinpoint({ region: aws_region });
-
+const aws_region = process.env.AWS_REGION || 'us-east-1';
 const ApplicationId = process.env.PINPOINT_APP_ID;
-const brandName = process.env.BRAND_NAME;
-const validityPeriod = process.env.VALIDITY_PERIOD;
+const brandName = process.env.BRAND_NAME || 'Swaco';
+const validityPeriod = process.env.VALIDITY_PERIOD || '5';
 const origNumber = process.env.ORIGINATION_NUMBER;
-const messageChannel = process.env.MESSAGE_CHANNEL;
+const messageChannel = process.env.MESSAGE_CHANNEL || 'SMS';
 
+AWS.config.credentials = credentials;
 const credentials = new AWS.SharedIniFileCredentials({
   profile: 'default',
 });
-AWS.config.credentials = credentials;
 AWS.config.update({ region: aws_region });
+const pinpoint = new AWS.Pinpoint({ region: aws_region });
 
 /**
  * Sends an OTP to a given phone number via AWS Pinpoint.
