@@ -32,7 +32,7 @@ const sendOtp = async (phoneNumber) => {
     SendOtpMessageRequestParameters: {
       BrandName: brandName,
       Channel: messageChannel,
-      DestinationNumber: phoneNumber,
+      DestinationIdentity: phoneNumber,
       OriginationIdentity: origNumber,
       ReferenceId: referenceId,
       ValidityPeriod: validityPeriod,
