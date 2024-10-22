@@ -10,6 +10,8 @@ const smsMessage =
   'This is a test message sent from <emphasis>Amazon Pinpoint</emphasis> ' +
   'Reply STOP to opt out.';
 
+const messageType = 'TRANSACTIONAL';
+
 const configurationSet = 'ConfigSet';
 const callerId = process.env.CALLER_ID;
 
@@ -19,7 +21,7 @@ const credentials = new AWS.SharedIniFileCredentials({
 AWS.config.credentials = credentials;
 AWS.config.update({ region: aws_region });
 
-const pinpointsmsvoice = new AWS.PinpointSMSVoice();
+const pinpoint = new AWS.Pinpoint();
 
 function sendVoiceMessage(destinationNumber) {
   const params = {
