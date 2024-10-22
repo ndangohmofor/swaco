@@ -12,6 +12,7 @@ const messageType = 'TRANSACTIONAL';
 const registeredKeyword = process.env.REGISTERED_KEYWORD;
 const ApplicationId = process.env.PINPOINT_APP_ID;
 const brandName = process.env.BRAND_NAME;
+const validityPeriod = process.env.VALIDITY_PERIOD;
 
 const credentials = new AWS.SharedIniFileCredentials({
   profile: 'default',
