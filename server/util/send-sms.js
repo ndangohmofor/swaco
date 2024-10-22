@@ -19,7 +19,7 @@ const credentials = new AWS.SharedIniFileCredentials({
 AWS.config.credentials = credentials;
 AWS.config.update({ region: aws_region });
 
-const sendOtp = async (destinationNumber) => {
+const sendOtp = async (phoneNumber) => {
   const referenceId = uuidv4();
 
   // Specify the parameters to pass to the API.
