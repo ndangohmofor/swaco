@@ -56,12 +56,12 @@ const sendOtp = async (phoneNumber) => {
  * @param {string} otpCode - The OTP code received from the user.
  * @returns {success: boolean, message: string} - The verification result.
  */
-const verifyOtp = async (referenceId, phoneNumber, OtpCode) => {
+const verifyOtp = async (referenceId, phoneNumber, otpCode) => {
   const params = {
     ApplicationId: ApplicationId,
     VerifyOtpMessageRequestParameters: {
       DestinationIdentity: phoneNumber,
-      Otp: OtpCode,
+      Otp: otpCode,
       ReferenceId: referenceId,
     },
   };
