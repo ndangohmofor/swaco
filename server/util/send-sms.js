@@ -47,20 +47,22 @@ const sendOtp = async (phoneNumber) => {
   }
 };
 
-const verifyOtp = async (referenceId, phoneNumber, OtpCode) {
+const verifyOtp = async (referenceId, phoneNumber, OtpCode) => {
   const params = {
     ApplicationId: ApplicationId,
     VerifyOtpMessageRequestParameters: {
       DestinationIdentity: phoneNumber,
       Otp: OtpCode,
       ReferenceId: referenceId,
-    }
-  }
+    },
+  };
 
   try {
     const response = await pinpoint.verifyOtpMessage(params).promise();
     console.log(`OTP verification result: ${JSON.stringify(response)}`);
-    return response.VerificationResponse.Valid ? {success: true, message: 'OTP verified successfully'} : {success: false, message: 'Invalid OTP'};
+    return response.VerificationResponse.Valid
+      ? { success: true, message: 'OTP verified successfully' }
+      : { success: false, message: 'Invalid OTP' };
   } catch (err) {
     console.log(`Error verifying OTP: ${err.message}`);
     return { success: false, message: err.message };
