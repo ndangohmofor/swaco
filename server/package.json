@@ -16,7 +16,8 @@
     "otp-generator": "^4.0.1",
     "re": "^0.1.4",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^10.0.0"
   },
   "name": "swaco-server",
   "version": "1.0.0",
