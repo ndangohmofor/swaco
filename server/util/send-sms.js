@@ -41,7 +41,7 @@ const sendOtp = async (phoneNumber) => {
     console.log(`OTP sent successfully: ${JSON.stringify(response)}`);
     return { referenceId, phoneNumber };
   } catch (err) {
-    console.log(`Error sending OTP: ${err.message}`);
+    console.error(`Error sending OTP: ${err.message}`);
     throw err;
   }
 };
@@ -70,7 +70,7 @@ const verifyOtp = async (referenceId, phoneNumber, otpCode) => {
       ? { success: true, message: 'OTP verified successfully' }
       : { success: false, message: 'Invalid OTP' };
   } catch (err) {
-    console.log(`Error verifying OTP: ${err.message}`);
+    console.error(`Error verifying OTP: ${err.message}`);
     return { success: false, message: err.message };
   }
 };
