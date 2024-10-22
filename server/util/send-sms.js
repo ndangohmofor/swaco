@@ -36,4 +36,13 @@ const sendOtp = async (phoneNumber) => {
       ValidityPeriod: validityPeriod,
     },
   };
+
+  try {
+    const response = await pinpoint.sendOtpMessages(params).promise();
+    console.log(`OTP sent successfully: ${JSON.stringify(response)}`);
+    return { referenceId, phoneNumber };
+  } catch (err) {
+    console.log(`Error sending OTP: ${err.message}`);
+    throw err;
+  }
 };
