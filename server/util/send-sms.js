@@ -6,14 +6,11 @@ const aws_region = 'us-east-1';
 
 const pinpoint = new AWS.Pinpoint({ region: aws_region });
 
-const messageType = 'TRANSACTIONAL';
-const registeredKeyword = process.env.REGISTERED_KEYWORD;
 const ApplicationId = process.env.PINPOINT_APP_ID;
 const brandName = process.env.BRAND_NAME;
 const validityPeriod = process.env.VALIDITY_PERIOD;
 const origNumber = process.env.ORIGINATION_NUMBER;
 const messageChannel = process.env.MESSAGE_CHANNEL;
-const languageCode = 'en-US';
 
 const credentials = new AWS.SharedIniFileCredentials({
   profile: 'default',
