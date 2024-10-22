@@ -37,6 +37,7 @@ const params = {
         Body: smsMessage,
         MessageType: messageType,
         OriginationNumber: origNumber,
+        LanguageCode: languageCode,
       },
     },
   },
@@ -53,4 +54,4 @@ pinpoint.sendMessages(params, function (err, data) {
   }
 });
 
-export default sendVoiceMessage;
+export default sendMessages;
