@@ -11,6 +11,8 @@ const smsMessage =
   'Reply STOP to opt out.';
 
 const messageType = 'TRANSACTIONAL';
+const registeredKeyword = process.env.REGISTERED_KEYWORD;
+const ApplicationId = process.env.PINPOINT_APP_ID;
 
 const configurationSet = 'ConfigSet';
 const callerId = process.env.CALLER_ID;
@@ -25,7 +27,7 @@ const pinpoint = new AWS.Pinpoint();
 
 // Specify the parameters to pass to the API.
 const params = {
-  ApplicationId: process.env.PINPOINT_APP_ID,
+  ApplicationId: ApplicationId,
   MessageRequest: {
     Addresses: {
       [destinationNumber]: {
@@ -35,6 +37,7 @@ const params = {
     MessageConfiguration: {
       SMSMessage: {
         Body: smsMessage,
+        keyword: registeredKeyword,
         MessageType: messageType,
         OriginationNumber: origNumber,
         LanguageCode: languageCode,
