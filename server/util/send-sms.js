@@ -4,7 +4,6 @@ import AWS from 'aws-sdk';
 const aws_region = 'us-east-1';
 const origNumber = process.env.ORIGINATION_NUMBER;
 const languageCode = 'en-US';
-const voiceId = 'Ruth';
 
 const smsMessage =
   'This is a test message sent from <emphasis>Amazon Pinpoint</emphasis> ' +
@@ -13,9 +12,6 @@ const smsMessage =
 const messageType = 'TRANSACTIONAL';
 const registeredKeyword = process.env.REGISTERED_KEYWORD;
 const ApplicationId = process.env.PINPOINT_APP_ID;
-
-const configurationSet = 'ConfigSet';
-const callerId = process.env.CALLER_ID;
 
 const credentials = new AWS.SharedIniFileCredentials({
   profile: 'default',
