@@ -9,11 +9,10 @@ const validityPeriod = process.env.VALIDITY_PERIOD || '5';
 const origNumber = process.env.ORIGINATION_NUMBER;
 const messageChannel = process.env.MESSAGE_CHANNEL || 'SMS';
 
-AWS.config.credentials = credentials;
 const credentials = new AWS.SharedIniFileCredentials({
   profile: 'default',
 });
-AWS.config.update({ region: aws_region });
+AWS.config.credentials = credentials;
 const pinpoint = new AWS.Pinpoint({ region: aws_region });
 
 /**
