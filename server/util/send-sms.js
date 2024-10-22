@@ -11,6 +11,7 @@ const pinpoint = new AWS.Pinpoint({ region: aws_region });
 const messageType = 'TRANSACTIONAL';
 const registeredKeyword = process.env.REGISTERED_KEYWORD;
 const ApplicationId = process.env.PINPOINT_APP_ID;
+const brandName = process.env.BRAND_NAME;
 
 const credentials = new AWS.SharedIniFileCredentials({
   profile: 'default',
