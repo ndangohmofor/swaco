@@ -21,6 +21,11 @@ const credentials = new AWS.SharedIniFileCredentials({
 AWS.config.credentials = credentials;
 AWS.config.update({ region: aws_region });
 
+/**
+ * Sends an OTP to a given phone number via AWS Pinpoint.
+ * @param {string} phoneNumber - The phone number to send the OTP to.
+ * @returns {referenceId: string, phoneNumber: string} - An object containing the referenceId.
+ */
 const sendOtp = async (phoneNumber) => {
   const referenceId = uuidv4();
 
@@ -47,6 +52,13 @@ const sendOtp = async (phoneNumber) => {
   }
 };
 
+/**
+ * Verifies an OTP received by the end user.
+ * @param {string} referenceId - The unique reference ID generated when the OTP was sent.
+ * @param {string} phoneNumber - The phone number the OTP was sent to.
+ * @param {string} otpCode - The OTP code received from the user.
+ * @returns {success: boolean, message: string} - The verification result.
+ */
 const verifyOtp = async (referenceId, phoneNumber, OtpCode) => {
   const params = {
     ApplicationId: ApplicationId,
@@ -68,3 +80,5 @@ const verifyOtp = async (referenceId, phoneNumber, OtpCode) => {
     return { success: false, message: err.message };
   }
 };
+
+export { sendOtp, verifyOtp };
