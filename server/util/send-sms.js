@@ -6,13 +6,9 @@ const origNumber = process.env.ORIGINATION_NUMBER;
 const languageCode = 'en-US';
 const voiceId = 'Ruth';
 
-const ssmlMessage =
-  '<speak>' +
+const smsMessage =
   'This is a test message sent from <emphasis>Amazon Pinpoint</emphasis> ' +
-  "using the <break strength='weak'/>AWS SDK for JavaScript in Node.js. " +
-  "<amazon:effect phonation='soft'>Thank you for listening." +
-  '</amazon:effect>' +
-  '</speak>';
+  'Reply STOP to opt out.';
 
 const configurationSet = 'ConfigSet';
 const callerId = process.env.CALLER_ID;
