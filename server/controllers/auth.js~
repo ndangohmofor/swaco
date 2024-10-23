@@ -50,7 +50,7 @@ export const confirmOtp = async (req, res) => {
     );
 
     if (!success) {
-      res.status(400).json({ success, message });
+      res.status(400).json({ message });
       return;
     }
 
