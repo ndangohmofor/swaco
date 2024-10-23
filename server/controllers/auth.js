@@ -54,6 +54,16 @@ export const confirmOtp = async (req, res) => {
       return;
     }
 
+    //If user is in registered status, change it to verified and update status in the DB
+    if (user.status === 'REGISTERED') {
+      user.status = 'VERIFIED';
+      await User.findOneAndUpdate(
+        { phoneNumber },
+        { status: 'VERIFIED' },
+        { returnOriginal: false },
+      );
+    }
+
     const token = jwt.sign(
       { id: user._id, phoneNumber },
       process.env.JWT_SECRET,
