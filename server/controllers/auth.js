@@ -24,9 +24,7 @@ export const register = async (req, res) => {
     });
 
     console.log('newUser', newUser);
-
-    const savedUser = await newUser.save();
-
+    await newUser.save();
     res.status(201).json({ referenceId });
   } catch (error) {
     return res.status(500).json({ message: error.message });
