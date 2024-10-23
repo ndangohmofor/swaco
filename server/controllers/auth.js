@@ -1,7 +1,5 @@
-import bcrypt from 'bcrypt';
 import User from '../models/User.js';
-import otpGenerator from 'otp-generator';
-import { sendOtp, verifyOtp } from '../util/send-sms.js';
+import { sendOtp } from '../util/send-sms.js';
 
 /** REGISTER USER */
 export const register = async (req, res) => {
@@ -22,26 +20,14 @@ export const register = async (req, res) => {
       lastName,
       location,
       phoneNumber,
-      otp: hashedOtp,
       picturePath,
     });
 
     console.log('newUser', newUser);
 
     const savedUser = await newUser.save();
-    let smsSent = false;
 
-    if (smsSent) {
-      return res.status(201).json({
-        user: savedUser,
-        message: 'Enter the OTP sent to your number',
-      });
-    } else {
-      return res.status(201).json({
-        user: savedUser,
-        message: 'Failed to send OTP via SMS',
-      });
-    }
+    res.status(201).json({ referenceId });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
