@@ -26,7 +26,7 @@ const sendOtp = async (phoneNumber) => {
   // Specify the parameters to pass to the API.
   const params = {
     ApplicationId: ApplicationId,
-    SendOtpMessageRequestParameters: {
+    SendOTPMessageRequestParameters: {
       BrandName: brandName,
       Channel: messageChannel,
       DestinationIdentity: phoneNumber,
@@ -37,7 +37,7 @@ const sendOtp = async (phoneNumber) => {
   };
 
   try {
-    const response = await pinpoint.sendOtpMessages(params).promise();
+    const response = await pinpoint.sendOTPMessage(params).promise();
     console.log(`OTP sent successfully: ${JSON.stringify(response)}`);
     return { referenceId, phoneNumber };
   } catch (err) {
