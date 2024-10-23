@@ -12,7 +12,7 @@ import multer from 'multer';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import fs from 'fs';
-import { register } from './controllers/auth.js';
+import { confirmOtp, register } from './controllers/auth.js';
 
 /** MIDDLEWARE AND PACKAGE CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
@@ -48,6 +48,9 @@ const upload = multer({ storage });
 
 //* ROUTES WITH FILES */
 app.post('/auth/register', upload.single('picture'), register);
+
+//Testing auth
+app.post('/auth/verify', confirmOtp);
 
 //** MONGOOSE CONFIGURATIONS */
 const MONGO_URL = process.env.MONGO_URL;

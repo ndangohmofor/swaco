@@ -56,7 +56,7 @@ const sendOtp = async (phoneNumber) => {
 const verifyOtp = async (referenceId, phoneNumber, otpCode) => {
   const params = {
     ApplicationId: ApplicationId,
-    VerifyOTPMessageRequestParameters: {
+    VerifyOtpMessageRequestParameters: {
       DestinationIdentity: phoneNumber,
       Otp: otpCode,
       ReferenceId: referenceId,
