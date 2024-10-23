@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 import otpGenerator from 'otp-generator';
+import { sendOtp, verifyOtp } from '../util/send-sms.js';
 
 /** REGISTER USER */
 export const register = async (req, res) => {
@@ -15,13 +15,7 @@ export const register = async (req, res) => {
       return;
     }
 
-    let otp = otpGenerator.generate(5, {
-      digits: true,
-      alphabets: false,
-      specialChars: false,
-      upperCase: false,
-    });
-    const hashedOtp = await bcrypt.hash(otp, 10);
+    const { referenceId } = await sendOtp(phoneNumber);
 
     const newUser = new User({
       firstName,
