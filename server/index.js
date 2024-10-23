@@ -12,7 +12,7 @@ import multer from 'multer';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import fs from 'fs';
-import { authRoutes } from './routes/auth.js';
+import authRoutes from './routes/auth.js';
 import { confirmOtp, register } from './controllers/auth.js';
 
 /** MIDDLEWARE AND PACKAGE CONFIGURATIONS */
