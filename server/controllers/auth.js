@@ -58,3 +58,20 @@ export const confirmOtp = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+/* LOGIN USER */
+
+export const login = async (req, res) => {
+  try {
+    const { phoneNumber } = req.body;
+    const user = await User.findOne({ phoneNumber });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    //If user exists, send them an OTP
+    const { referenceId } = await sendOtp(phoneNumber);
+    res.status(200).json({ referenceId });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
