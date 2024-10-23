@@ -12,6 +12,7 @@ import multer from 'multer';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import fs from 'fs';
+import { authRoutes } from './routes/auth.js';
 import { confirmOtp, register } from './controllers/auth.js';
 
 /** MIDDLEWARE AND PACKAGE CONFIGURATIONS */
@@ -48,6 +49,7 @@ const upload = multer({ storage });
 
 //* ROUTES WITH FILES */
 app.post('/auth/register', upload.single('picture'), register);
+app.use('/auth', authRoutes);
 
 //Testing auth
 app.post('/auth/verify', confirmOtp);
