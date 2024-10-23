@@ -21,12 +21,6 @@ const userSchema = new mongoose.Schema(
       max: 10,
       unique: true,
     },
-    otp: {
-      type: String,
-      required: false,
-      max: 5,
-      default: null,
-    },
     status: {
       type: String,
       enum: ['REGISTERED', 'MEMBER', 'VERIFIED'],
