@@ -61,7 +61,7 @@ export const confirmOtp = async (req, res) => {
         expiresIn: '1d',
       },
     );
-    res.status(200).json({ success, message, token });
+    res.status(200).json({ success, user, token });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
