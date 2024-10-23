@@ -64,7 +64,7 @@ const verifyOtp = async (referenceId, phoneNumber, otpCode) => {
   };
 
   try {
-    const response = await pinpoint.verifyOtpMessage(params).promise();
+    const response = await pinpoint.verifyOTPMessage(params).promise();
     console.log(`OTP verification result: ${JSON.stringify(response)}`);
     return response.VerificationResponse.Valid
       ? { success: true, message: 'OTP verified successfully' }
