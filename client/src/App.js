@@ -37,7 +37,7 @@ function App() {
             />
             <Route path="/learnmore" element={<LearnMore />} />
             <Route path="/joinus" element={<JoinUs />} />
-            <Route path="/signup" element={<SignUp />} />
+            <Route path="/signup" element={<LoginPage />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
