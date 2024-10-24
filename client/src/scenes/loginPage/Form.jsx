@@ -97,6 +97,7 @@ const Form = ({page}) => {
 
   const register = async (values, onSubmitProps) => {
     const formData = new FormData();
+    values.phoneNumber = +1 + values.phoneNumber;
     for (let value in values) {
       formData.append(value, values[value]);
     }
@@ -115,11 +116,8 @@ const Form = ({page}) => {
 
       if (response.status === 201) {
         setReferenceId(response.data);
-      }
-
-      if (referenceId) {
-        setPhoneNumber(values.phoneNumber);
         setPageType("otp");
+        setPhoneNumber(values.phoneNumber);
         onSubmitProps.resetForm();
       }
     } catch (error) {
