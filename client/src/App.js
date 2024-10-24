@@ -11,6 +11,7 @@ import Index from "./scenes/LandingPage";
 import Constitution from "./scenes/constitution";
 import LearnMore from "./scenes/learnMorePage";
 import JoinUs from "./scenes/joinUsPage";
+import SignUp from "./scenes/signUpPage";
 
 function App() {
   const mode = useSelector((state) => state.mode);
@@ -36,6 +37,7 @@ function App() {
             />
             <Route path="/learnmore" element={<LearnMore />} />
             <Route path="/joinus" element={<JoinUs />} />
+            <Route path="/signup" element={<SignUp />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
