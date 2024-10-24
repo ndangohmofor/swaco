@@ -1,5 +1,6 @@
 'use strict';
-import AWS from 'aws-sdk';
+import { SendOTPMessageCommand } from '@aws-sdk/client-pinpoint';
+import { pinpoint } from '../lib/aws-services.js';
 import { v4 as uuidv4 } from 'uuid';
 
 const aws_region = process.env.AWS_REGION || 'us-east-1';
@@ -9,11 +10,11 @@ const validityPeriod = process.env.VALIDITY_PERIOD || '5';
 const origNumber = process.env.ORIGINATION_NUMBER;
 const messageChannel = process.env.MESSAGE_CHANNEL || 'SMS';
 
-const credentials = new AWS.SharedIniFileCredentials({
-  profile: 'default',
-});
-AWS.config.credentials = credentials;
-const pinpoint = new AWS.Pinpoint({ region: aws_region });
+// const credentials = new AWS.SharedIniFileCredentials({
+//   profile: 'default',
+// });
+// AWS.config.credentials = credentials;
+// const pinpoint = new AWS.Pinpoint({ region: aws_region });
 
 /**
  * Sends an OTP to a given phone number via AWS Pinpoint.
@@ -37,7 +38,7 @@ const sendOtp = async (phoneNumber) => {
   };
 
   try {
-    const response = await pinpoint.sendOTPMessage(params).promise();
+    const response = await pinpoint.send(new SendOTPMessageCommand(params));
     console.log(`OTP sent successfully: ${JSON.stringify(response)}`);
     return { referenceId, phoneNumber };
   } catch (err) {
