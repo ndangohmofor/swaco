@@ -6,7 +6,6 @@ import {
 import { pinpoint } from '../lib/aws-services.js';
 import { v4 as uuidv4 } from 'uuid';
 
-const aws_region = process.env.AWS_REGION || 'us-east-1';
 const ApplicationId = process.env.PINPOINT_APP_ID;
 const brandName = process.env.BRAND_NAME || 'Swaco';
 const validityPeriod = process.env.VALIDITY_PERIOD || '5';
