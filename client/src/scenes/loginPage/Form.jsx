@@ -73,6 +73,7 @@ const Form = ({page}) => {
   const [initialValues, setInitialValues] = useState(initialValuesLogin);
   const [validationSchema, setValidationSchema] = useState(loginSchema);
   const [phoneNumber, setPhoneNumber] = useState();
+  const [referenceId, setReferenceId] = useState(null);
 
   useEffect(() => {
     switch (pageType) {
@@ -98,7 +99,6 @@ const Form = ({page}) => {
     const formData = new FormData();
     for (let value in values) {
       formData.append(value, values[value]);
-      console.log("formdata", formData);
     }
     if (values.picture) {
       formData.append(
@@ -108,12 +108,14 @@ const Form = ({page}) => {
     }
 
     try {
-      const registerResponse = await instance.post(
+      const response = await instance.post(
         "/auth/register",
           formData,
       );
 
-      const referenceId = await registerResponse.json();
+      if (response.status === 201) {
+        setReferenceId(response.data);
+      }
 
       if (referenceId) {
         setPhoneNumber(values.phoneNumber);
