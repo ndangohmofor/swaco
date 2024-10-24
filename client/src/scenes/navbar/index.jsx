@@ -45,18 +45,6 @@ const Navbar = () => {
   return (
     <FlexBetween padding={"0.5rem 2%"} backgroundColor={alt}>
       <FlexBetween gap={"1.75rem"}>
-        {/* <Typography
-          fontWeight={"bold"}
-          fontSize={"clamp(1rem, 2rem, 2.25rem)"}
-          color={"primary"}
-          onClick={() => navigate("/")}
-          sx={{
-            "&:hover": {
-              color: primaryLight,
-              cursor: "pointer",
-            },
-          }}
-        > */}
         <img
           src="/assets/photos/Logo.png"
           alt="swaco logo"
