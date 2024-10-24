@@ -98,17 +98,19 @@ const Form = ({page}) => {
     const formData = new FormData();
     for (let value in values) {
       formData.append(value, values[value]);
+      console.log("formdata", formData);
     }
-    if (values.picture)
+    if (values.picture) {
       formData.append(
-        "picturePath",
-        `${values.phoneNumber}/${values.picture.name}`
+          "picturePath",
+          `${values.phoneNumber}/${values.picture.name}`
       );
+    }
 
     try {
       const registerResponse = await instance.post(
         "/auth/register",
-          {formData},
+          formData,
       );
 
       const referenceId = await registerResponse.json();
@@ -340,7 +342,7 @@ const Form = ({page}) => {
                   <Button
                     fullWidth
                     type="submit"
-                    value="register"
+                    // value="register"
                     sx={{
                       m: "2rem 0",
                       p: "1rem",
