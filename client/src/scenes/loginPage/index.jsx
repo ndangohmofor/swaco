@@ -2,7 +2,7 @@ import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Form from "./Form";
 
-const LoginPage = () => {
+const LoginPage = ({ pageType }) => {
   const theme = useTheme();
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ const LoginPage = () => {
         >
           Southern Cameroons Association of Ohio
         </Typography>
-        <Form />
+        <Form pageType={pageType} />
       </Box>
     </Box>
   );
