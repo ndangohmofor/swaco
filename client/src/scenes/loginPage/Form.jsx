@@ -63,8 +63,8 @@ const initialValuesOtp = {
   otp: "",
 };
 
-const Form = () => {
-  const [pageType, setPageType] = useState("login");
+const Form = ({pageType}) => {
+  const [pageType, setPageType] = useState(pageType);
   const { palette } = useTheme();
   const dispatch = useDispatch();
   const navigate = useNavigate();
