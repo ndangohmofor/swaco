@@ -106,7 +106,7 @@ const Form = ({page}) => {
       );
 
     try {
-      const registerResponse = await instance(
+      const registerResponse = await instance.post(
         "/auth/register",
           {formData},
       );
