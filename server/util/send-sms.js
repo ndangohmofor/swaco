@@ -1,5 +1,8 @@
 'use strict';
-import { SendOTPMessageCommand } from '@aws-sdk/client-pinpoint';
+import {
+  SendOTPMessageCommand,
+  VerifyOTPMessageCommand,
+} from '@aws-sdk/client-pinpoint';
 import { pinpoint } from '../lib/aws-services.js';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -65,7 +68,7 @@ const verifyOtp = async (referenceId, phoneNumber, otpCode) => {
   };
 
   try {
-    const response = await pinpoint.verifyOTPMessage(params).promise();
+    const response = await pinpoint.send(new VerifyOTPMessageCommand(params));
     console.log(`OTP verification result: ${JSON.stringify(response)}`);
     return response.VerificationResponse.Valid
       ? { success: true, message: 'OTP verified successfully' }
