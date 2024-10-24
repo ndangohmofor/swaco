@@ -356,9 +356,10 @@ const Form = ({page}) => {
                     REGISTER
                   </Button>
                   <Typography
-                    onClick={() => {
-                      setPageType("login");
+                    onClick={(e) => {
                       resetForm();
+                      navigate("/login");
+                      // setPageType("login");
                     }}
                     sx={{
                       textDecoration: "underline",
