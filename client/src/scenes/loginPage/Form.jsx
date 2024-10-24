@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import { setLogin } from "../../state";
 import DropZone from "react-dropzone";
 import FlexBetween from "../../components/FlexBetween";
+import instance from "../../axios/api";
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
@@ -105,17 +106,14 @@ const Form = ({page}) => {
       );
 
     try {
-      const savedUserResponse = await fetch(
-        "http://localhost:3001/auth/register",
-        {
-          method: "POST",
-          body: formData,
-        }
+      const registerResponse = await instance(
+        "/auth/register",
+          {formData},
       );
 
-      const savedUser = await savedUserResponse.json();
+      const referenceId = await registerResponse.json();
 
-      if (savedUser) {
+      if (referenceId) {
         setPhoneNumber(values.phoneNumber);
         setPageType("otp");
         onSubmitProps.resetForm();
@@ -237,8 +235,8 @@ const Form = ({page}) => {
                   </Button>
                   <Typography
                     onClick={() => {
-                      setPageType("register");
                       resetForm();
+                      setPageType("register");
                     }}
                     sx={{
                       textDecoration: "underline",
@@ -358,8 +356,7 @@ const Form = ({page}) => {
                   <Typography
                     onClick={(e) => {
                       resetForm();
-                      navigate("/login");
-                      // setPageType("login");
+                      setPageType("login");
                     }}
                     sx={{
                       textDecoration: "underline",
